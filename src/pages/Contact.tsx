@@ -5,13 +5,7 @@ import {
   Mail,
   Phone,
   Clock,
-  ArrowRight,
   Send,
-  Package,
-  ShieldCheck,
-  Building2,
-  ChevronDown,
-  ChevronUp,
   CheckCircle2,
   Zap,
   Globe2,
@@ -34,10 +28,6 @@ const fadeRight: Variants = {
   hidden: { opacity: 0, x: 70 },
   visible: { opacity: 1, x: 0, transition: { duration: 0.7, ease: "easeOut" } },
 };
-const scaleIn: Variants = {
-  hidden: { opacity: 0, scale: 0.88 },
-  visible: { opacity: 1, scale: 1, transition: { duration: 0.6, ease: "easeOut" } },
-};
 const stagger: Variants = {
   visible: { transition: { staggerChildren: 0.1 } },
 };
@@ -54,11 +44,6 @@ interface FormData {
   company: string;
   inquiryType: string;
   message: string;
-}
-
-interface FAQ {
-  question: string;
-  answer: string;
 }
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
@@ -112,24 +97,6 @@ const inquiryTypes = [
   "Other",
 ];
 
-const inquiryCards = [
-  {
-    icon: Package,
-    title: "Wholesale Inquiry",
-    desc: "Looking to stock Nuts Delish products? We offer competitive wholesale pricing, flexible MOQs, and reliable fulfilment across India.",
-    cta: "Contact Wholesale Team",
-    color: "from-amber-500 to-orange-500",
-    highlights: ["Competitive pricing", "Flexible MOQ", "Pan-India delivery", "Dedicated account manager"],
-  },
-  {
-    icon: ShieldCheck,
-    title: "Private Label Inquiry",
-    desc: "Build your own brand with our end-to-end private label solutions — from product development and formulation to branded packaging.",
-    cta: "Explore Private Label",
-    color: "from-[var(--secondary)] to-rose-700",
-    highlights: ["Custom branding", "R&D support", "Custom packaging", "Full manufacturing support"],
-  },
-];
 
 const socialLinks = [
   { icon: AtSign, label: "Instagram", href: "#", color: "from-pink-500 to-rose-500" },
@@ -138,48 +105,6 @@ const socialLinks = [
   { icon: Link2, label: "LinkedIn", href: "#", color: "from-blue-700 to-blue-900" },
 ];
 
-const faqs: FAQ[] = [
-  { question: "How quickly do you respond to enquiries?", answer: "We aim to respond to all enquiries within 24 business hours. For urgent matters, please call us directly during business hours." },
-  { question: "Do you offer samples before placing a bulk order?", answer: "Yes, we offer product samples for genuine wholesale and private label enquiries. Please reach out through the contact form or phone to request a sample pack." },
-  { question: "What is the minimum order quantity for wholesale?", answer: "MOQs vary by product category. Please contact our wholesale team with your requirements and we'll provide a customised quote." },
-  { question: "Do you ship outside India?", answer: "Currently our primary distribution network covers PAN India. For international enquiries, please contact us and we'll explore the best options for your requirements." },
-  { question: "How do I start a private label project?", answer: "Simply reach out via our contact form or email with your brand vision and product ideas. Our private label team will walk you through the entire process from concept to shelf." },
-  { question: "Can I visit your facility?", answer: "Facility visits are arranged for serious wholesale and private label partners. Please contact us in advance to schedule an appointment." },
-];
-
-// ─── FAQ Item ─────────────────────────────────────────────────────────────────
-function FAQItem({ faq }: { faq: FAQ }) {
-  const [open, setOpen] = useState(false);
-  return (
-    <motion.div variants={childFade} className="rounded-3xl border border-[var(--border)] bg-[var(--surface)] overflow-hidden shadow-[var(--shadow-sm)]">
-      <button
-        onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between gap-4 p-8 text-left hover:bg-[var(--surface-secondary)] transition-colors duration-200"
-        aria-expanded={open}
-      >
-        <span className="text-lg font-bold text-[var(--text)]">{faq.question}</span>
-        <span className="flex-shrink-0 h-8 w-8 rounded-full bg-[color-mix(in_srgb,var(--primary)_10%,white)] flex items-center justify-center">
-          {open
-            ? <ChevronUp size={16} className="text-[var(--primary)]" />
-            : <ChevronDown size={16} className="text-[var(--primary)]" />}
-        </span>
-      </button>
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="overflow-hidden"
-          >
-            <p className="px-8 pb-8 leading-8 text-[var(--text-secondary)]">{faq.answer}</p>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.div>
-  );
-}
 
 // ─── Main Component ───────────────────────────────────────────────────────────
 export default function Contact() {
@@ -432,121 +357,6 @@ export default function Contact() {
               </div>
             </motion.div>
           </div>
-        </div>
-      </section>
-
-      {/* ── BUSINESS INQUIRY CARDS ── */}
-      <section className="py-32 bg-[var(--surface)]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mb-20">
-            <span className="text-sm font-semibold uppercase tracking-[4px] text-[var(--primary)]">Business Partnerships</span>
-            <h2 className="mt-4 text-5xl font-black text-[var(--text)]">Grow With <span className="text-[var(--primary)]">Nuts Delish</span></h2>
-            <p className="mt-6 text-lg text-[var(--text-secondary)] max-w-2xl mx-auto">We work with retailers, distributors, and brand builders. Here's how we can work together.</p>
-          </motion.div>
-          <div className="grid md:grid-cols-2 gap-10">
-            {inquiryCards.map((card, i) => {
-              const Icon = card.icon;
-              return (
-                <motion.div
-                  key={card.title}
-                  variants={i === 0 ? fadeLeft : fadeRight}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  whileHover={{ y: -8 }}
-                  className="rounded-[40px] border border-[var(--border)] bg-[var(--surface-secondary)] p-10 shadow-[var(--shadow-sm)] transition-all duration-300"
-                >
-                  <div className={`h-16 w-16 rounded-2xl bg-gradient-to-br ${card.color} flex items-center justify-center shadow-lg`}>
-                    <Icon size={28} className="text-white" />
-                  </div>
-                  <h3 className="mt-8 text-2xl font-black text-[var(--text)]">{card.title}</h3>
-                  <p className="mt-4 text-[var(--text-secondary)] leading-8">{card.desc}</p>
-                  <div className="mt-8 space-y-3">
-                    {card.highlights.map((h) => (
-                      <div key={h} className="flex items-center gap-3 text-[var(--text-secondary)]">
-                        <CheckCircle2 size={16} className="text-[var(--primary)] flex-shrink-0" />
-                        <span className="text-sm">{h}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <a
-                    href="#contact-form"
-                    onClick={() => document.querySelector("form")?.scrollIntoView({ behavior: "smooth" })}
-                    className={`mt-8 inline-flex items-center gap-2 rounded-full bg-gradient-to-r ${card.color} px-6 py-3 text-sm font-semibold text-white hover:-translate-y-0.5 transition-all duration-200 shadow-[var(--shadow-sm)]`}
-                  >
-                    {card.cta} <ArrowRight size={16} />
-                  </a>
-                </motion.div>
-              );
-            })}
-          </div>
-
-          {/* Additional Business Channels */}
-          <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true }} className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {[
-              { icon: Building2, title: "Retail Partnership", desc: "Stock us in your store", color: "text-blue-600", bg: "bg-blue-50 border-blue-200" },
-              { icon: Globe2, title: "E-Commerce Listing", desc: "List on your platform", color: "text-green-600", bg: "bg-green-50 border-green-200" },
-              { icon: Zap, title: "Quick Commerce", desc: "Fast delivery partners", color: "text-amber-600", bg: "bg-amber-50 border-amber-200" },
-              { icon: ShieldCheck, title: "Corporate Gifting", desc: "Branded gift hampers", color: "text-purple-600", bg: "bg-purple-50 border-purple-200" },
-            ].map((item) => {
-              const Icon = item.icon;
-              return (
-                <motion.div key={item.title} variants={childFade} whileHover={{ y: -6 }}
-                  className={`rounded-2xl border ${item.bg} p-6 cursor-default transition-all duration-300`}>
-                  <Icon size={24} className={item.color} />
-                  <p className="mt-4 font-bold text-[var(--text)]">{item.title}</p>
-                  <p className="mt-1 text-sm text-[var(--text-secondary)]">{item.desc}</p>
-                </motion.div>
-              );
-            })}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ── FAQ ── */}
-      <section className="py-32 bg-[var(--background)]">
-        <div className="max-w-4xl mx-auto px-6">
-          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mb-16">
-            <span className="text-sm font-semibold uppercase tracking-[4px] text-[var(--primary)]">FAQ</span>
-            <h2 className="mt-4 text-5xl font-black text-[var(--text)]">Common Questions</h2>
-            <p className="mt-6 text-lg text-[var(--text-secondary)]">Quick answers before you reach out.</p>
-          </motion.div>
-          <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true }} className="space-y-4">
-            {faqs.map((faq, i) => <FAQItem key={i} faq={faq} />)}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ── CTA ── */}
-      <section className="py-32 bg-[var(--surface)]">
-        <div className="max-w-4xl mx-auto px-6">
-          <motion.div variants={scaleIn} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-            <div className="rounded-[48px] bg-gradient-to-br from-[var(--primary)] via-[var(--secondary)] to-[color-mix(in_srgb,var(--secondary)_80%,black)] p-16 text-white text-center relative overflow-hidden">
-              <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute top-0 right-0 h-64 w-64 rounded-full bg-white/5 blur-3xl" />
-                <div className="absolute bottom-0 left-0 h-48 w-48 rounded-full bg-white/5 blur-3xl" />
-              </div>
-              <div className="relative">
-                <span className="inline-block rounded-full bg-white/20 px-5 py-2 text-sm font-semibold uppercase tracking-widest">Let's Connect</span>
-                <h2 className="mt-6 text-4xl md:text-5xl font-black leading-tight">Start Your Partnership With Nuts Delish Today</h2>
-                <p className="mt-6 text-xl opacity-85 max-w-xl mx-auto leading-8">Our team is ready to support your wholesale, private label, or retail needs. Reach out — we're just a message away.</p>
-                <div className="mt-10 flex flex-wrap justify-center gap-4">
-                  <a
-                    href="mailto:hello@nutsdelish.com"
-                    className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-[var(--primary)] font-bold hover:bg-[var(--accent)] transition-all duration-300 hover:-translate-y-1 shadow-lg"
-                  >
-                    <Mail size={18} /> Email Us Now
-                  </a>
-                  <a
-                    href="tel:+919876543210"
-                    className="inline-flex items-center gap-2 rounded-full border-2 border-white/50 px-8 py-4 font-semibold hover:bg-white/10 transition-all duration-300"
-                  >
-                    <Phone size={18} /> Call Us
-                  </a>
-                </div>
-              </div>
-            </div>
-          </motion.div>
         </div>
       </section>
 

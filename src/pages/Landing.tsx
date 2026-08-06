@@ -1,4 +1,5 @@
 import { motion, type Variants } from "framer-motion";
+
 import {
   ArrowRight,
   Leaf,
@@ -13,15 +14,19 @@ import {
   TrendingUp,
   Users,
   CheckCircle2,
-  Package,
   Factory,
-  ChevronDown,
-  ChevronUp,
-} from "lucide-react";
-import { useState } from "react";
-import HeroImage from "../assets/1.png";
-import HeroImage1 from "../assets/2.png";
 
+} from "lucide-react";
+// import { useState } from "react";
+import HeroImage from "../assets/1.png";
+
+
+import amazon from "../assets/platforms/amazon.svg";
+import flipkart from "../assets/platforms/flipkart.svg";
+import blinkit from "../assets/platforms/blinkit.svg";
+import zepto from "../assets/platforms/zepto.svg";
+import bigbasket from "../assets/platforms/bigbasket.svg";
+import jiomart from "../assets/platforms/jiomart.svg";
 // ─── Animation Variants ───────────────────────────────────────────────────────
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 60 },
@@ -35,10 +40,10 @@ const fadeRight: Variants = {
   hidden: { opacity: 0, x: 70 },
   visible: { opacity: 1, x: 0, transition: { duration: 0.7, ease: "easeOut" } },
 };
-const scaleIn: Variants = {
-  hidden: { opacity: 0, scale: 0.88 },
-  visible: { opacity: 1, scale: 1, transition: { duration: 0.6, ease: "easeOut" } },
-};
+// const scaleIn: Variants = {
+//   hidden: { opacity: 0, scale: 0.88 },
+//   visible: { opacity: 1, scale: 1, transition: { duration: 0.6, ease: "easeOut" } },
+// };
 const stagger: Variants = {
   visible: { transition: { staggerChildren: 0.11 } },
 };
@@ -47,39 +52,6 @@ const childFade: Variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.55 } },
 };
 
-// ─── Data ─────────────────────────────────────────────────────────────────────
-const faqs = [
-  {
-    question: "Where are your products sourced from?",
-    answer:
-      "We carefully source premium-quality dry fruits, nuts, seeds, and spices from trusted suppliers to ensure exceptional freshness, purity, and taste.",
-  },
-  {
-    question: "Are your products hygienically packed?",
-    answer:
-      "Yes. All our products are processed and packed under strict hygiene standards using high-quality food-grade packaging to preserve freshness and nutritional value.",
-  },
-  {
-    question: "Do you provide bulk or wholesale orders?",
-    answer:
-      "Yes. We cater to bulk, wholesale, and corporate orders with flexible packaging options and reliable distribution to meet business requirements.",
-  },
-  {
-    question: "Do you offer private labeling services?",
-    answer:
-      "Yes. We provide private labeling and customized packaging solutions, helping businesses create their own branded range of premium food products.",
-  },
-  {
-    question: "How do you ensure product quality?",
-    answer:
-      "Every product undergoes multiple quality inspections, from sourcing and processing to packaging, ensuring it meets our high standards before reaching customers.",
-  },
-  {
-    question: "Which product categories do you offer?",
-    answer:
-      "Our portfolio includes premium dry fruits, nuts, healthy seeds, spices, healthy snacks, gift hampers, and customized private-label products.",
-  },
-];
 
 const coreValues = [
   { icon: ShieldCheck, title: "Uncompromising Quality", desc: "Every product is tested and inspected from source to shelf — no shortcuts, no compromises." },
@@ -99,14 +71,6 @@ const whyChooseUs = [
   { icon: Building2, title: "PAN India Distribution", desc: "A robust national distribution network delivering freshness from our facility to your doorstep." },
 ];
 
-const manufacturingSteps = [
-  { step: "01", title: "Trusted Sourcing", desc: "Verified suppliers, premium raw materials, ethical origins." },
-  { step: "02", title: "Lab Testing", desc: "Every batch tested for purity, moisture, and quality parameters." },
-  { step: "03", title: "Hygienic Processing", desc: "Modern facilities under strict FSSAI food safety protocols." },
-  { step: "04", title: "Premium Packaging", desc: "Airtight, food-grade packaging preserving freshness end-to-end." },
-  { step: "05", title: "Quality Sign-Off", desc: "Final inspection before every single dispatch — no exceptions." },
-  { step: "06", title: "Fast Fulfilment", desc: "Reliable omnichannel delivery across every corner of India." },
-];
 
 const brands = [
   {
@@ -139,58 +103,19 @@ const brands = [
 ];
 
 const trustedBy = [
-  "Amazon", "Flipkart", "Blinkit", "Zepto", "Swiggy Instamart", "BigBasket", "JioMart", "Meesho",
+  { name: "Amazon", logo: amazon },
+  { name: "Flipkart", logo: flipkart },
+  { name: "Blinkit", logo: blinkit },
+  { name: "Zepto", logo: zepto },
+  { name: "BigBasket", logo: bigbasket },
+  { name: "JioMart", logo: jiomart },
 ];
-
 const qualityStandards = [
   "FSSAI Certified", "Lab-Tested Batches", "Food-Grade Packaging",
   "Ethically Sourced", "No Artificial Additives", "Hygienic Facilities",
 ];
 
-const highlights = [
-  { icon: Building2, value: "2020", label: "Year Founded" },
-  { icon: Award, value: "100+", label: "Premium Products" },
-  { icon: PackageCheck, value: "100%", label: "Quality Assured" },
-  { icon: Globe2, value: "PAN India", label: "Distribution" },
-  { icon: Star, value: "3", label: "Power Brands" },
-  { icon: TrendingUp, value: "5X", label: "YoY Growth" },
-];
 
-// ─── FAQ Item ─────────────────────────────────────────────────────────────────
-function FAQItem({ faq, index }: { faq: typeof faqs[0]; index: number }) {
-  const [open, setOpen] = useState(false);
-  return (
-    <motion.div
-      key={index}
-      variants={childFade}
-      className="rounded-3xl border border-[var(--border)] bg-[var(--surface)] overflow-hidden shadow-[var(--shadow-sm)]"
-    >
-      <button
-        onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between gap-4 p-8 text-left hover:bg-[var(--surface-secondary)] transition-colors duration-200"
-        aria-expanded={open}
-      >
-        <span className="text-lg font-bold text-[var(--text)]">{faq.question}</span>
-        <span className="flex-shrink-0 h-8 w-8 rounded-full bg-[color-mix(in_srgb,var(--primary)_10%,white)] flex items-center justify-center">
-          {open
-            ? <ChevronUp size={16} className="text-[var(--primary)]" />
-            : <ChevronDown size={16} className="text-[var(--primary)]" />}
-        </span>
-      </button>
-      {open && (
-        <motion.div
-          initial={{ height: 0, opacity: 0 }}
-          animate={{ height: "auto", opacity: 1 }}
-          exit={{ height: 0, opacity: 0 }}
-          transition={{ duration: 0.3 }}
-          className="overflow-hidden"
-        >
-          <p className="px-8 pb-8 leading-8 text-[var(--text-secondary)]">{faq.answer}</p>
-        </motion.div>
-      )}
-    </motion.div>
-  );
-}
 
 // ─── Page Component ───────────────────────────────────────────────────────────
 export default function Landing() {
@@ -270,87 +195,127 @@ export default function Landing() {
       </section>
 
       {/* ══════════════════════════════════════════════════════
-          TRUSTED BY
-      ══════════════════════════════════════════════════════ */}
-      <section className="py-16 bg-[var(--surface)] border-y border-[var(--border)]">
+        TRUSTED BY
+══════════════════════════════════════════════════════ */}
+      <section className="py-16 bg-[var(--surface)] overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mb-10">
-            <p className="text-xs font-semibold uppercase tracking-[4px] text-[var(--text-secondary)]">Available On Leading Platforms</p>
-          </motion.div>
-          <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true }}
-            className="flex flex-wrap justify-center items-center gap-4">
-            {trustedBy.map((name) => (
-              <motion.div key={name} variants={childFade} whileHover={{ scale: 1.05, y: -3 }}
-                className="rounded-2xl border border-[var(--border)] bg-[var(--surface-secondary)] px-7 py-4 text-sm font-semibold text-[var(--text-secondary)] transition-all duration-200 cursor-default shadow-[var(--shadow-sm)]">
-                {name}
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
 
-      {/* ══════════════════════════════════════════════════════
-          ABOUT / WHO WE ARE
-      ══════════════════════════════════════════════════════ */}
-      <section className="py-32 bg-[var(--background)]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <div className="grid lg:grid-cols-2 gap-20 items-center">
-            <motion.div variants={fadeLeft} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              <span className="inline-flex rounded-full bg-[color-mix(in_srgb,var(--primary)_10%,white)] px-5 py-2 text-sm font-semibold uppercase tracking-[3px] text-[var(--primary)]">
-                About Nuts Delish
-              </span>
-              <h2 className="mt-8 text-5xl font-black leading-tight text-[var(--text)] lg:text-6xl">
-                Bringing Premium
-                <span className="block text-[var(--primary)]">Nutrition To Every Home</span>
-              </h2>
-              <p className="mt-8 text-lg leading-9 text-[var(--text-secondary)]">
-                Nuts Delish is a fast-growing FMCG company building innovative, consumer-centric food and beverage brands. From sourcing the finest ingredients to hygienic packaging and reliable distribution, every step reflects our commitment to quality and customer satisfaction.
-              </p>
-              <p className="mt-6 text-lg leading-9 text-[var(--text-secondary)]">
-                With a vision to make premium food products accessible to every household, we continue to introduce products that cater to evolving consumer lifestyles while delivering exceptional taste, convenience, and value.
-              </p>
-              <a href="/about" className="mt-10 inline-flex items-center gap-2 rounded-full bg-[var(--primary)] px-8 py-4 text-white font-semibold hover:bg-[var(--primary-hover)] transition-all duration-300 hover:-translate-y-1 shadow-[var(--shadow-md)]">
-                Our Story <ArrowRight size={18} />
-              </a>
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <p className="text-xs font-semibold uppercase tracking-[4px] text-[var(--text-secondary)]">
+              Available On Leading Platforms
+            </p>
+          </motion.div>
+
+          <div className="relative overflow-hidden">
+
+            {/* Left Fade */}
+            <div className="absolute left-0 top-0 z-10 h-full w-24 bg-gradient-to-r from-[var(--surface)] to-transparent" />
+
+            {/* Right Fade */}
+            <div className="absolute right-0 top-0 z-10 h-full w-24 bg-gradient-to-l from-[var(--surface)] to-transparent" />
+
+            <motion.div
+              className="flex items-center gap-20 w-max"
+              animate={{ x: ["0%", "-50%"] }}
+              transition={{
+                duration: 20,
+                repeat: Infinity,
+                ease: "linear",
+              }}
+            >
+              {[...trustedBy, ...trustedBy].map((item, index) => (
+                <img
+                  key={index}
+                  src={item.logo}
+                  alt={item.name}
+                  className="
+              h-14
+              md:h-16
+              lg:h-20
+              w-auto
+              object-contain
+              opacity-70
+              hover:opacity-100
+              hover:scale-110
+              transition-all
+              duration-300
+            "
+                />
+              ))}
             </motion.div>
-            <motion.div variants={fadeRight} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              <img
-                src={HeroImage1}
-                alt="Nuts Delish"
-                className="w-full rounded-[36px] border border-[var(--border)] shadow-[var(--shadow-md)]"
-              />
-            </motion.div>
+
           </div>
+
         </div>
       </section>
 
       {/* ══════════════════════════════════════════════════════
-          COMPANY HIGHLIGHTS
-      ══════════════════════════════════════════════════════ */}
-      <section className="py-32 bg-[var(--surface)]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mb-16">
-            <span className="text-sm font-semibold uppercase tracking-[4px] text-[var(--primary)]">By The Numbers</span>
-            <h2 className="mt-4 text-5xl font-black text-[var(--text)]">Company Highlights</h2>
-          </motion.div>
-          <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true }}
-            className="grid grid-cols-2 lg:grid-cols-3 gap-6">
-            {highlights.map((item) => {
-              const Icon = item.icon;
-              return (
-                <motion.div key={item.label} variants={childFade} whileHover={{ y: -8 }}
-                  className="rounded-3xl border border-[var(--border)] bg-[var(--surface-secondary)] p-8 text-center shadow-[var(--shadow-sm)] transition-all duration-300 cursor-default">
-                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-[color-mix(in_srgb,var(--primary)_10%,white)]">
-                    <Icon size={28} className="text-[var(--primary)]" />
-                  </div>
-                  <p className="mt-6 text-4xl font-black text-[var(--text)]">{item.value}</p>
-                  <p className="mt-2 text-sm text-[var(--text-secondary)]">{item.label}</p>
-                </motion.div>
-              );
-            })}
-          </motion.div>
-        </div>
-      </section>
+      ABOUT / WHO WE ARE
+══════════════════════════════════════════════════════ */}
+<section className="py-32 bg-[var(--background)]">
+  <div className="max-w-5xl mx-auto px-6 lg:px-10">
+
+    <motion.div
+      variants={fadeUp}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      className="text-center"
+    >
+      {/* Badge */}
+      <span className="inline-flex rounded-full bg-[color-mix(in_srgb,var(--primary)_10%,white)] px-5 py-2 text-sm font-semibold uppercase tracking-[3px] text-[var(--primary)]">
+        About Nuts Delish
+      </span>
+
+      {/* Heading */}
+      <h2 className="mt-8 text-5xl lg:text-6xl font-black leading-tight text-[var(--text)]">
+        Bringing Premium
+        <span className="block text-[var(--primary)]">
+          Nutrition To Every Home
+        </span>
+      </h2>
+
+      {/* Description */}
+      <p className="mt-10 text-xl leading-9 text-[var(--text-secondary)] max-w-4xl mx-auto">
+        Nuts Delish Private Limited is a fast-growing FMCG company dedicated to
+        delivering premium-quality dry fruits, healthy snacks, spices, seeds,
+        and grocery essentials. We combine trusted sourcing, modern processing,
+        and hygienic packaging to ensure every product reaches consumers with
+        maximum freshness, nutrition, and taste.
+      </p>
+
+      <p className="mt-6 text-xl leading-9 text-[var(--text-secondary)] max-w-4xl mx-auto">
+        Through our brands <strong>KesarCo</strong>,
+        <strong> Tea Better</strong>, and <strong>Bruniq</strong>, we are
+        building a portfolio that meets the evolving lifestyle needs of modern
+        consumers. Our commitment to innovation, quality, and customer
+        satisfaction drives us to create products that families across India
+        can trust every day.
+      </p>
+
+      {/* CTA */}
+      <div className="mt-12 flex justify-center">
+        <a
+          href="/about"
+          className="inline-flex items-center gap-2 rounded-full bg-[var(--primary)] px-8 py-4 text-white font-semibold shadow-[var(--shadow-md)] transition-all duration-300 hover:-translate-y-1 hover:bg-[var(--primary-hover)]"
+        >
+          Discover Our Story
+          <ArrowRight size={18} />
+        </a>
+      </div>
+
+    </motion.div>
+
+  </div>
+</section>
+
+  
 
       {/* ══════════════════════════════════════════════════════
           BRAND PORTFOLIO PREVIEW
@@ -463,7 +428,7 @@ export default function Landing() {
       {/* ══════════════════════════════════════════════════════
           MANUFACTURING PROCESS
       ══════════════════════════════════════════════════════ */}
-      <section className="py-32 bg-[var(--surface)]">
+      {/* <section className="py-32 bg-[var(--surface)]">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mb-20">
             <span className="text-sm font-semibold uppercase tracking-[4px] text-[var(--primary)]">How We Work</span>
@@ -487,7 +452,7 @@ export default function Landing() {
             ))}
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* ══════════════════════════════════════════════════════
           QUALITY STANDARDS
@@ -537,96 +502,7 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════════
-          BUSINESS PRESENCE
-      ══════════════════════════════════════════════════════ */}
-      <section className="py-32 bg-[var(--surface)]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mb-20">
-            <span className="text-sm font-semibold uppercase tracking-[4px] text-[var(--primary)]">Business Presence</span>
-            <h2 className="mt-4 text-5xl font-black text-[var(--text)]">Everywhere You Shop</h2>
-            <p className="mt-6 text-lg text-[var(--text-secondary)] max-w-2xl mx-auto">Our expanding omnichannel network puts Nuts Delish products within reach — however your customers choose to shop.</p>
-          </motion.div>
-          <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true }}
-            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { icon: Globe2, label: "E-Commerce", desc: "Amazon, Flipkart & more", color: "from-blue-500 to-indigo-600", bg: "bg-blue-50 border-blue-200" },
-              { icon: Zap, label: "Quick Commerce", desc: "Blinkit, Zepto, Swiggy", color: "from-amber-500 to-orange-500", bg: "bg-amber-50 border-amber-200" },
-              { icon: Package, label: "Marketplaces", desc: "Multi-platform presence", color: "from-green-500 to-emerald-600", bg: "bg-green-50 border-green-200" },
-              { icon: Building2, label: "Offline Retail", desc: "Kiranas & modern trade", color: "from-rose-500 to-pink-600", bg: "bg-rose-50 border-rose-200" },
-            ].map((ch) => {
-              const Icon = ch.icon;
-              return (
-                <motion.div key={ch.label} variants={childFade} whileHover={{ y: -8 }}
-                  className={`rounded-3xl border ${ch.bg} p-8 text-center cursor-default transition-all duration-300`}>
-                  <div className={`mx-auto h-14 w-14 rounded-2xl bg-gradient-to-br ${ch.color} flex items-center justify-center shadow-lg`}>
-                    <Icon size={24} className="text-white" />
-                  </div>
-                  <p className="mt-6 font-bold text-[var(--text)]">{ch.label}</p>
-                  <p className="mt-2 text-sm text-[var(--text-secondary)]">{ch.desc}</p>
-                </motion.div>
-              );
-            })}
-          </motion.div>
-        </div>
-      </section>
 
-      {/* ══════════════════════════════════════════════════════
-          FAQ
-      ══════════════════════════════════════════════════════ */}
-      <section className="py-32 bg-[var(--background)]">
-        <div className="max-w-4xl mx-auto px-6">
-          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mb-16">
-            <span className="text-sm font-semibold uppercase tracking-[4px] text-[var(--primary)]">FAQ</span>
-            <h2 className="mt-4 text-5xl font-black text-[var(--text)]">Frequently Asked Questions</h2>
-            <p className="mt-6 text-lg text-[var(--text-secondary)]">Quick answers to the questions we hear most often.</p>
-          </motion.div>
-          <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true }} className="space-y-4">
-            {faqs.map((faq, i) => <FAQItem key={i} faq={faq} index={i} />)}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════════════════
-          FINAL CTA
-      ══════════════════════════════════════════════════════ */}
-      <section className="py-32 bg-[var(--surface)]">
-        <div className="max-w-4xl mx-auto px-6">
-          <motion.div variants={scaleIn} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-            <div className="rounded-[48px] bg-gradient-to-br from-[var(--primary)] via-[var(--secondary)] to-[color-mix(in_srgb,var(--secondary)_80%,black)] p-16 text-white text-center relative overflow-hidden">
-              <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute top-0 right-0 h-64 w-64 rounded-full bg-white/5 blur-3xl" />
-                <div className="absolute bottom-0 left-0 h-48 w-48 rounded-full bg-white/5 blur-3xl" />
-              </div>
-              <div className="relative">
-                <span className="inline-block rounded-full bg-white/20 px-5 py-2 text-sm font-semibold uppercase tracking-widest">Get Started Today</span>
-                <h2 className="mt-6 text-4xl md:text-6xl font-black leading-tight">
-                  Ready To Taste The <br /> Nuts Delish Difference?
-                </h2>
-                <p className="mt-6 text-xl opacity-85 max-w-xl mx-auto leading-8">
-                  Whether you're a consumer, retailer, or brand partner — we'd love to work with you. Reach out and let's build something great.
-                </p>
-                <div className="mt-12 flex flex-wrap justify-center gap-4">
-                  <a href="/products" className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-[var(--primary)] font-bold hover:bg-[var(--accent)] transition-all duration-300 hover:-translate-y-1 shadow-lg">
-                    Explore Products <ArrowRight size={18} />
-                  </a>
-                  <a href="/contact" className="inline-flex items-center gap-2 rounded-full border-2 border-white/50 px-8 py-4 font-semibold hover:bg-white/10 transition-all duration-300">
-                    Contact Us
-                  </a>
-                </div>
-                <div className="mt-12 flex flex-wrap justify-center gap-8">
-                  {[["100+", "Products"], ["3", "Brands"], ["PAN India", "Reach"]].map(([v, l]) => (
-                    <div key={l} className="text-center">
-                      <p className="text-3xl font-black">{v}</p>
-                      <p className="text-sm opacity-70 mt-1">{l}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
 
     </main>
   );

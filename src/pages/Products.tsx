@@ -9,12 +9,10 @@ import {
   CheckCircle2,
   Package,
   Gift,
-  Zap,
+  
   Heart,
   Filter,
-  ChevronDown,
-  ChevronUp,
-} from "lucide-react";
+  } from "lucide-react";
 
 // ─── Animation Variants ───────────────────────────────────────────────────────
 const fadeUp: Variants = {
@@ -29,10 +27,7 @@ const fadeRight: Variants = {
   hidden: { opacity: 0, x: 70 },
   visible: { opacity: 1, x: 0, transition: { duration: 0.7, ease: "easeOut" } },
 };
-const scaleIn: Variants = {
-  hidden: { opacity: 0, scale: 0.88 },
-  visible: { opacity: 1, scale: 1, transition: { duration: 0.6, ease: "easeOut" } },
-};
+
 const stagger: Variants = {
   visible: { transition: { staggerChildren: 0.1 } },
 };
@@ -65,10 +60,7 @@ interface Category {
   highlights: string[];
 }
 
-interface FAQ {
-  question: string;
-  answer: string;
-}
+
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 const categories: Category[] = [
@@ -155,23 +147,9 @@ const products: Product[] = [
   { id: 18, name: "Private Label Seeds Range", category: "private-label", description: "Launch your own seeds brand with our private label programme — from product selection to branded packaging.", tags: ["Full Support", "B2B"], gradient: "from-teal-500 to-cyan-600", iconBg: "bg-teal-100", emoji: "📦" },
 ];
 
-const benefits = [
-  { icon: ShieldCheck, title: "Quality Guaranteed", desc: "Every product is rigorously tested and inspected before it leaves our facility. No shortcuts — ever." },
-  { icon: Leaf, title: "Natural & Pure", desc: "No artificial colours, flavours, or preservatives. Just honest, clean ingredients you can trust." },
-  { icon: Zap, title: "Fresh to Your Door", desc: "Airtight packaging and efficient logistics ensure maximum freshness from our facility to your home." },
-  { icon: Award, title: "Premium Sourcing", desc: "We source only from verified, ethical suppliers who meet our exacting standards for quality and sustainability." },
-  { icon: Heart, title: "Nutrition First", desc: "Every product is developed with nutritional integrity in mind — so eating well never means compromising on taste." },
-  { icon: Package, title: "Thoughtful Packaging", desc: "Food-grade, eco-conscious packaging that preserves freshness while reducing environmental footprint." },
-];
 
-const faqs: FAQ[] = [
-  { question: "What product categories does Nuts Delish offer?", answer: "We offer Premium Dry Fruits, Healthy Seeds, Whole Spices, Healthy Foods, curated Gift Hampers, and a complete Private Label programme for businesses." },
-  { question: "Are your products free from artificial additives?", answer: "Yes. All our products are made with clean, natural ingredients with no artificial colours, flavours, or preservatives — just pure, honest food." },
-  { question: "Do you cater to bulk and wholesale orders?", answer: "Absolutely. We serve wholesalers, distributors, and corporate buyers with flexible bulk order options, competitive pricing, and reliable fulfilment." },
-  { question: "Can I get products under my own brand name?", answer: "Yes. Our private label programme allows you to launch your own branded range of nuts, seeds, and spices with full manufacturing and packaging support." },
-  { question: "How are your products packaged?", answer: "We use premium food-grade, airtight packaging to preserve freshness, nutritional value, and taste from production all the way to your shelf." },
-  { question: "Where can I buy Nuts Delish products?", answer: "Our products are available across e-commerce platforms, quick commerce apps, major marketplaces, and select offline retail stores across India." },
-];
+
+
 
 // ─── Sub-Components ───────────────────────────────────────────────────────────
 function ProductCard({ product }: { product: Product }) {
@@ -217,36 +195,36 @@ function ProductCard({ product }: { product: Product }) {
   );
 }
 
-function FAQItem({ faq }: { faq: FAQ }) {
-  const [open, setOpen] = useState(false);
-  return (
-    <motion.div variants={childFade} className="rounded-3xl border border-[var(--border)] bg-[var(--surface)] overflow-hidden shadow-[var(--shadow-sm)]">
-      <button
-        onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between gap-4 p-8 text-left hover:bg-[var(--surface-secondary)] transition-colors duration-200"
-        aria-expanded={open}
-      >
-        <span className="text-lg font-bold text-[var(--text)]">{faq.question}</span>
-        <span className="flex-shrink-0 h-8 w-8 rounded-full bg-[color-mix(in_srgb,var(--primary)_10%,white)] flex items-center justify-center">
-          {open ? <ChevronUp size={16} className="text-[var(--primary)]" /> : <ChevronDown size={16} className="text-[var(--primary)]" />}
-        </span>
-      </button>
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="overflow-hidden"
-          >
-            <p className="px-8 pb-8 leading-8 text-[var(--text-secondary)]">{faq.answer}</p>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.div>
-  );
-}
+// function FAQItem({ faq }: { faq: FAQ }) {
+//   const [open, setOpen] = useState(false);
+//   return (
+//     <motion.div variants={childFade} className="rounded-3xl border border-[var(--border)] bg-[var(--surface)] overflow-hidden shadow-[var(--shadow-sm)]">
+//       <button
+//         onClick={() => setOpen(!open)}
+//         className="w-full flex items-center justify-between gap-4 p-8 text-left hover:bg-[var(--surface-secondary)] transition-colors duration-200"
+//         aria-expanded={open}
+//       >
+//         <span className="text-lg font-bold text-[var(--text)]">{faq.question}</span>
+//         <span className="flex-shrink-0 h-8 w-8 rounded-full bg-[color-mix(in_srgb,var(--primary)_10%,white)] flex items-center justify-center">
+//           {open ? <ChevronUp size={16} className="text-[var(--primary)]" /> : <ChevronDown size={16} className="text-[var(--primary)]" />}
+//         </span>
+//       </button>
+//       <AnimatePresence>
+//         {open && (
+//           <motion.div
+//             initial={{ height: 0, opacity: 0 }}
+//             animate={{ height: "auto", opacity: 1 }}
+//             exit={{ height: 0, opacity: 0 }}
+//             transition={{ duration: 0.3, ease: "easeInOut" }}
+//             className="overflow-hidden"
+//           >
+//             <p className="px-8 pb-8 leading-8 text-[var(--text-secondary)]">{faq.answer}</p>
+//           </motion.div>
+//         )}
+//       </AnimatePresence>
+//     </motion.div>
+//   );
+// }
 
 // ─── Main Component ───────────────────────────────────────────────────────────
 export default function Products() {
@@ -260,72 +238,7 @@ export default function Products() {
   return (
     <main className="overflow-hidden bg-[var(--background)]">
 
-      {/* ── HERO ── */}
-      <section className="relative min-h-[75vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute -top-40 -left-40 h-[600px] w-[600px] rounded-full bg-[color-mix(in_srgb,var(--accent)_30%,transparent)] blur-3xl" />
-          <div className="absolute -bottom-20 -right-20 h-[500px] w-[500px] rounded-full bg-[color-mix(in_srgb,var(--primary)_15%,transparent)] blur-3xl" />
-        </div>
-        <div className="relative z-10 max-w-5xl mx-auto px-6 text-center py-32">
-          <motion.div variants={stagger} initial="hidden" animate="visible">
-            <motion.span variants={childFade} className="inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--surface)] px-6 py-2.5 text-sm font-semibold text-[var(--primary)] shadow-[var(--shadow-sm)]">
-              <Package size={16} /> Our Product Range
-            </motion.span>
-            <motion.h1 variants={childFade} className="mt-8 text-6xl md:text-8xl font-black leading-tight text-[var(--text)]">
-              Nature's Finest, <span className="text-[var(--primary)]">Delivered</span> <span className="text-[var(--secondary)]">Fresh</span>
-            </motion.h1>
-            <motion.p variants={childFade} className="mt-8 text-xl leading-9 text-[var(--text-secondary)] max-w-3xl mx-auto">
-              From premium dry fruits and whole spices to healthy seeds, functional foods, and custom gift hampers — discover a world of premium, naturally sourced products.
-            </motion.p>
-            <motion.div variants={childFade} className="mt-10 flex justify-center gap-4 flex-wrap">
-              <a href="/contact" className="inline-flex items-center gap-2 rounded-full bg-[var(--primary)] px-8 py-4 text-white font-semibold hover:bg-[var(--primary-hover)] transition-all duration-300 hover:-translate-y-1 shadow-[var(--shadow-md)]">
-                Enquire Now <ArrowRight size={18} />
-              </a>
-              <a href="#categories" className="inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--surface)] px-8 py-4 font-semibold text-[var(--text)] hover:border-[var(--primary)] hover:text-[var(--primary)] transition-all duration-300">
-                Browse Categories
-              </a>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
 
-      {/* ── PRODUCT CATEGORIES ── */}
-      <section id="categories" className="py-32 bg-[var(--surface)]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mb-20">
-            <span className="text-sm font-semibold uppercase tracking-[4px] text-[var(--primary)]">What We Offer</span>
-            <h2 className="mt-4 text-5xl font-black text-[var(--text)]">Product Categories</h2>
-            <p className="mt-6 text-lg text-[var(--text-secondary)] max-w-2xl mx-auto">Six carefully curated categories, each built on the promise of quality, freshness, and exceptional taste.</p>
-          </motion.div>
-          <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true }} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {categories.map((cat) => {
-              const Icon = cat.icon;
-              return (
-                <motion.div key={cat.id} variants={childFade} whileHover={{ y: -10 }}
-                  onClick={() => { setActiveCategory(cat.id); document.getElementById("featured")?.scrollIntoView({ behavior: "smooth" }); }}
-                  className={`group rounded-3xl border ${cat.border} ${cat.bg} p-8 cursor-pointer transition-all duration-300 shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)]`}>
-                  <div className={`h-14 w-14 rounded-2xl bg-gradient-to-br ${cat.color} flex items-center justify-center shadow-lg`}>
-                    <Icon size={24} className="text-white" />
-                  </div>
-                  <h3 className="mt-6 text-xl font-bold text-[var(--text)]">{cat.label}</h3>
-                  <p className="mt-3 text-sm leading-6 text-[var(--text-secondary)]">{cat.description}</p>
-                  <div className="mt-5 space-y-2">
-                    {cat.highlights.map((h) => (
-                      <div key={h} className="flex items-center gap-2 text-sm text-[var(--text-secondary)]">
-                        <CheckCircle2 size={14} className="text-[var(--primary)] flex-shrink-0" />
-                        <span>{h}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <div className={`mt-6 flex items-center gap-2 text-sm font-semibold bg-gradient-to-r ${cat.color} bg-clip-text text-transparent`}>
-                    Explore Range <ArrowRight size={14} />
-                  </div>
-                </motion.div>
-              );
-            })}
-          </motion.div>
-        </div>
-      </section>
 
       {/* ── FEATURED PRODUCTS GRID ── */}
       <section id="featured" className="py-32 bg-[var(--background)]">
@@ -385,30 +298,7 @@ export default function Products() {
         </div>
       </section>
 
-      {/* ── PRODUCT BENEFITS ── */}
-      <section className="py-32 bg-[var(--surface)]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mb-20">
-            <span className="text-sm font-semibold uppercase tracking-[4px] text-[var(--primary)]">Why Nuts Delish</span>
-            <h2 className="mt-4 text-5xl font-black text-[var(--text)]">The Nuts Delish Advantage</h2>
-            <p className="mt-6 text-lg text-[var(--text-secondary)] max-w-2xl mx-auto">More than great taste — every product comes with a commitment to quality, purity, and freshness.</p>
-          </motion.div>
-          <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true }} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {benefits.map((b) => {
-              const Icon = b.icon;
-              return (
-                <motion.div key={b.title} variants={childFade} whileHover={{ y: -8 }} className="rounded-3xl border border-[var(--border)] bg-[var(--surface-secondary)] p-8 transition-all duration-300 cursor-default group">
-                  <div className="h-14 w-14 rounded-2xl bg-[color-mix(in_srgb,var(--primary)_10%,white)] flex items-center justify-center group-hover:bg-[var(--primary)] transition-colors duration-300">
-                    <Icon size={24} className="text-[var(--primary)] group-hover:text-white transition-colors duration-300" />
-                  </div>
-                  <h3 className="mt-6 text-xl font-bold text-[var(--text)]">{b.title}</h3>
-                  <p className="mt-3 leading-7 text-[var(--text-secondary)]">{b.desc}</p>
-                </motion.div>
-              );
-            })}
-          </motion.div>
-        </div>
-      </section>
+      
 
       {/* ── QUALITY PROMISE ── */}
       <section className="py-32 bg-[var(--background)]">
@@ -461,46 +351,7 @@ export default function Products() {
         </div>
       </section>
 
-      {/* ── FAQ ── */}
-      <section className="py-32 bg-[var(--surface)]">
-        <div className="max-w-4xl mx-auto px-6">
-          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mb-16">
-            <span className="text-sm font-semibold uppercase tracking-[4px] text-[var(--primary)]">FAQ</span>
-            <h2 className="mt-4 text-5xl font-black text-[var(--text)]">Frequently Asked Questions</h2>
-            <p className="mt-6 text-lg text-[var(--text-secondary)]">Everything you need to know about our products and services.</p>
-          </motion.div>
-          <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true }} className="space-y-4">
-            {faqs.map((faq, i) => <FAQItem key={i} faq={faq} />)}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ── CALL TO ACTION ── */}
-      <section className="py-32 bg-[var(--background)]">
-        <div className="max-w-4xl mx-auto px-6">
-          <motion.div variants={scaleIn} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-            <div className="rounded-[48px] bg-gradient-to-br from-[var(--primary)] via-[var(--secondary)] to-[color-mix(in_srgb,var(--secondary)_80%,black)] p-16 text-white text-center relative overflow-hidden">
-              <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute top-0 right-0 h-64 w-64 rounded-full bg-white/5 blur-3xl" />
-                <div className="absolute bottom-0 left-0 h-48 w-48 rounded-full bg-white/5 blur-3xl" />
-              </div>
-              <div className="relative">
-                <span className="inline-block rounded-full bg-white/20 px-5 py-2 text-sm font-semibold uppercase tracking-widest">Ready to Order?</span>
-                <h2 className="mt-6 text-4xl md:text-5xl font-black leading-tight">Wholesale, Retail & Private Label — Let's Talk</h2>
-                <p className="mt-6 text-xl opacity-85 max-w-xl mx-auto leading-8">Whether you're building a brand or stocking shelves, our team is ready to help you with the best products at the right price.</p>
-                <div className="mt-10 flex flex-wrap justify-center gap-4">
-                  <a href="/contact" className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-[var(--primary)] font-bold hover:bg-[var(--accent)] transition-all duration-300 hover:-translate-y-1 shadow-lg">
-                    Get In Touch <ArrowRight size={18} />
-                  </a>
-                  <a href="/about" className="inline-flex items-center gap-2 rounded-full border-2 border-white/50 px-8 py-4 font-semibold hover:bg-white/10 transition-all duration-300">
-                    About Us
-                  </a>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+     
 
     </main>
   );

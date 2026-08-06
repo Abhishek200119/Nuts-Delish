@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const currentYear = new Date().getFullYear();
 
 const linkClasses =
@@ -12,66 +14,69 @@ export default function Footer() {
       />
 
       <div className="relative mx-auto grid max-w-6xl grid-cols-1 gap-8 px-6 pb-8 pt-14 sm:grid-cols-2 md:grid-cols-[2fr_1fr_1fr_1fr]">
+
+        {/* Brand */}
         <div>
-          <a
-            href="/"
+          <Link
+            to="/"
             className="inline-block bg-gradient-to-r from-[var(--primary)] via-[var(--secondary)] to-[var(--accent)] bg-clip-text text-lg font-extrabold tracking-tight text-transparent"
           >
             NutsDelish
-          </a>
+          </Link>
           <p className="mt-3 max-w-[32ch] text-sm leading-relaxed text-[var(--text-muted)]">
-            Building products worth using — one release at a time.
+            Premium dry fruits, seeds, spices & healthy foods — crafted for every home across India.
           </p>
+          <div className="mt-5 flex flex-col gap-1.5 text-sm text-[var(--text-muted)]">
+            <span>📍 Mumbai, Maharashtra, India</span>
+            <span>✉️ hello@nutsdelish.com</span>
+            <span>📞 +91 98765 43210</span>
+          </div>
         </div>
 
+        {/* Products */}
         <div className="flex flex-col gap-2.5">
           <h4 className="mb-1 text-xs font-semibold uppercase tracking-wider text-[var(--text)]">
-            Product
+            Products
           </h4>
-          <a href="/products" className={linkClasses}>
-            Overview
-          </a>
-          <a href="/pricing" className={linkClasses}>
-            Pricing
-          </a>
-          <a href="/changelog" className={linkClasses}>
-            Changelog
-          </a>
+          <Link to="/products" className={linkClasses}>All Products</Link>
+          <Link to="/products" className={linkClasses}>Dry Fruits</Link>
+          <Link to="/products" className={linkClasses}>Healthy Seeds</Link>
+          <Link to="/products" className={linkClasses}>Whole Spices</Link>
+
         </div>
 
+        {/* Company */}
         <div className="flex flex-col gap-2.5">
           <h4 className="mb-1 text-xs font-semibold uppercase tracking-wider text-[var(--text)]">
             Company
           </h4>
-          <a href="/about" className={linkClasses}>
-            About Us
-          </a>
-          <a href="/careers" className={linkClasses}>
-            Careers
-          </a>
-          <a href="/contact" className={linkClasses}>
-            Contact
-          </a>
+          <Link to="/about" className={linkClasses}>About Us</Link>
+          <Link to="/about" className={linkClasses}>Our Brands</Link>
+          <Link to="/contact" className={linkClasses}>Contact</Link>
+
         </div>
 
+        {/* Connect */}
         <div className="flex flex-col gap-2.5">
           <h4 className="mb-1 text-xs font-semibold uppercase tracking-wider text-[var(--text)]">
-            Resources
+            Connect
           </h4>
-          <a href="/blog" className={linkClasses}>
-            Blog
-          </a>
-          <a href="/docs" className={linkClasses}>
-            Docs
-          </a>
-          <a href="/support" className={linkClasses}>
-            Support
-          </a>
+          {/* <a href="#" className={linkClasses}>Instagram</a>
+          <a href="#" className={linkClasses}>Facebook</a> */}
+          <a href="#" className={linkClasses}>LinkedIn</a>
+          {/* <a href="#" className={linkClasses}>Twitter / X</a> */}
+          {/* <Link to="/contact" className={linkClasses}>Wholesale Enquiry</Link> */}
         </div>
       </div>
 
       <div className="relative border-t border-[color-mix(in_srgb,var(--border)_60%,transparent)] px-6 py-5 text-center text-xs text-[var(--text-muted)]">
-        <p>&copy; {currentYear} NutsDelish. All rights reserved.</p>
+        <p>
+          &copy; {currentYear} Nuts Delish Private Limited. All rights reserved.
+          &nbsp;·&nbsp;
+          <span>FSSAI Certified</span>
+          &nbsp;·&nbsp;
+          <span>Made with ❤️ in India</span>
+        </p>
       </div>
     </footer>
   );

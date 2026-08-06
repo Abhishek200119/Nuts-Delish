@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
@@ -9,18 +10,22 @@ const NAV_LINKS = [
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { pathname } = useLocation();
+
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
     <header className="sticky top-0 z-50 border-b border-[color-mix(in_srgb,var(--border)_55%,transparent)] bg-[color-mix(in_srgb,var(--surface)_70%,transparent)] backdrop-blur-xl backdrop-saturate-150">
       <div className="relative mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
 
         {/* Logo */}
-        <a
-          href="/"
+        <Link
+          to="/"
           className="bg-gradient-to-r from-[var(--primary)] via-[var(--secondary)] to-[var(--accent)] bg-clip-text text-2xl font-extrabold tracking-tight text-transparent"
         >
           NutsDelish
-        </a>
+        </Link>
 
         {/* Navigation */}
         <nav
@@ -29,28 +34,25 @@ export default function Navbar() {
           }`}
         >
           {NAV_LINKS.map((link) => (
-            <a
+            <Link
               key={link.href}
-              href={link.href}
+              to={link.href}
               onClick={() => setIsMenuOpen(false)}
-              className="border-t border-[color-mix(in_srgb,var(--border)_50%,transparent)] px-6 py-4 text-sm font-medium text-[var(--text-secondary)] transition-all hover:bg-[color-mix(in_srgb,var(--primary)_10%,transparent)] hover:text-[var(--primary)] md:rounded-full md:border-none md:px-5 md:py-2"
+              className={`border-t border-[color-mix(in_srgb,var(--border)_50%,transparent)] px-6 py-4 text-sm font-medium transition-all md:rounded-full md:border-none md:px-5 md:py-2 ${
+                isActive(link.href)
+                  ? "text-[var(--primary)] bg-[color-mix(in_srgb,var(--primary)_8%,transparent)]"
+                  : "text-[var(--text-secondary)] hover:bg-[color-mix(in_srgb,var(--primary)_10%,transparent)] hover:text-[var(--primary)]"
+              }`}
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
         <div className="flex items-center gap-3">
+         
 
-          {/* CTA Button */}
-          <a
-            href="/contact"
-            className="hidden rounded-full bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] px-6 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg min-[860px]:inline-flex"
-          >
-            Get Started
-          </a>
-
-          {/* Mobile Menu */}
+          {/* Mobile Menu Toggle */}
           <button
             type="button"
             aria-label="Toggle navigation menu"
@@ -58,11 +60,22 @@ export default function Navbar() {
             onClick={() => setIsMenuOpen((prev) => !prev)}
             className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 md:hidden"
           >
-            <span className="block h-0.5 w-6 rounded-full bg-[var(--text)]"></span>
-            <span className="block h-0.5 w-6 rounded-full bg-[var(--text)]"></span>
-            <span className="block h-0.5 w-6 rounded-full bg-[var(--text)]"></span>
+            <span
+              className={`block h-0.5 w-6 rounded-full bg-[var(--text)] transition-transform duration-300 ${
+                isMenuOpen ? "translate-y-2 rotate-45" : ""
+              }`}
+            />
+            <span
+              className={`block h-0.5 w-6 rounded-full bg-[var(--text)] transition-opacity duration-300 ${
+                isMenuOpen ? "opacity-0" : ""
+              }`}
+            />
+            <span
+              className={`block h-0.5 w-6 rounded-full bg-[var(--text)] transition-transform duration-300 ${
+                isMenuOpen ? "-translate-y-2 -rotate-45" : ""
+              }`}
+            />
           </button>
-
         </div>
       </div>
     </header>

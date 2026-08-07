@@ -7,12 +7,36 @@ import {
   Star,
   Award,
   CheckCircle2,
-  Package,
-  Gift,
-  
-  Heart,
   Filter,
-  } from "lucide-react";
+} from "lucide-react";
+
+// ─── Image Imports: Dry Fruits ────────────────────────────────────────────────
+import imgAlmonds from "../assets/Dry Fruits/Almonds.png";
+import imgCashews from "../assets/Dry Fruits/Cashews.png";
+import imgBlackRaisins from "../assets/Dry Fruits/Black Raisins.png";
+import imgGreenRaisins from "../assets/Dry Fruits/Green Raisins.png";
+import imgPista from "../assets/Dry Fruits/Pista.png";
+import imgFig from "../assets/Dry Fruits/Fig.png";
+import imgBlackCurrant from "../assets/Dry Fruits/Black Currant.png";
+
+// ─── Image Imports: Seeds ─────────────────────────────────────────────────────
+import imgChia from "../assets/Seeds/Chia.png";
+import imgFlax from "../assets/Seeds/Flax.png";
+import imgPumpkin from "../assets/Seeds/Pumpkin.png";
+import imgSunflower from "../assets/Seeds/Sunflower.png";
+import imgBasil from "../assets/Seeds/Basil.png";
+import imgWatermelon from "../assets/Seeds/Watermelon.png";
+
+// ─── Image Imports: Whole Spices ──────────────────────────────────────────────
+import imgGreenCardamom from "../assets/Whole Spices/Green Cardamom.png";
+import imgCinnamon from "../assets/Whole Spices/Cinnamon.png";
+import imgBlackPepper from "../assets/Whole Spices/Black Pepper.png";
+import imgCumin from "../assets/Whole Spices/Cumin.png";
+import imgRedChilli from "../assets/Whole Spices/Red Chilli.png";
+import imgTurmeric from "../assets/Whole Spices/Turmeric.png";
+import imgBayLeaves from "../assets/Whole Spices/Bay Leaves.png";
+import imgStarAnise from "../assets/Whole Spices/Star Anise.png";
+import imgFenugreek from "../assets/Whole Spices/Fenugreek.png";
 
 // ─── Animation Variants ───────────────────────────────────────────────────────
 const fadeUp: Variants = {
@@ -46,7 +70,8 @@ interface Product {
   badge?: string;
   gradient: string;
   iconBg: string;
-  emoji: string;
+  image: string;
+  enquireUrl: string;
 }
 
 interface Category {
@@ -59,8 +84,6 @@ interface Category {
   description: string;
   highlights: string[];
 }
-
-
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 const categories: Category[] = [
@@ -94,62 +117,261 @@ const categories: Category[] = [
     description: "Aromatic whole spices sourced from premium growing regions for authentic, bold flavour in every dish.",
     highlights: ["100% whole & natural", "Premium origins", "No blends or fillers", "Intense aroma & flavour"],
   },
-  {
-    id: "healthy-foods",
-    label: "Healthy Foods",
-    icon: Heart,
-    color: "from-purple-500 to-violet-600",
-    bg: "bg-purple-50",
-    border: "border-purple-200",
-    description: "Better-for-you snacks, mixes, and functional foods — guilt-free goodness for everyday living.",
-    highlights: ["Clean ingredient lists", "Low sugar options", "High protein choices", "Vegan & GF available"],
-  },
-  {
-    id: "gift-hampers",
-    label: "Gift Hampers",
-    icon: Gift,
-    color: "from-pink-500 to-rose-500",
-    bg: "bg-pink-50",
-    border: "border-pink-200",
-    description: "Thoughtfully curated premium gift hampers for every occasion — corporate gifting, festivals, and celebrations.",
-    highlights: ["Luxury packaging", "Custom curation", "Corporate bulk orders", "Festival specials"],
-  },
-  {
-    id: "private-label",
-    label: "Private Label",
-    icon: Package,
-    color: "from-slate-600 to-slate-800",
-    bg: "bg-slate-50",
-    border: "border-slate-200",
-    description: "Build your own brand with our end-to-end private labelling solutions — from formulation to branded packaging.",
-    highlights: ["Custom branding", "MOQ flexibility", "R&D support", "National distribution ready"],
-  },
 ];
 
 const products: Product[] = [
-  { id: 1, name: "Premium California Almonds", category: "dry-fruits", description: "Crisp, rich, and naturally nutritious — our California almonds are selected for maximum freshness.", tags: ["Bestseller", "High Protein"], badge: "Bestseller", gradient: "from-amber-400 to-orange-400", iconBg: "bg-amber-100", emoji: "🌰" },
-  { id: 2, name: "Whole Cashew W240", category: "dry-fruits", description: "Large, buttery whole cashews with a clean snap and superior taste — perfect for snacking and cooking.", tags: ["Premium", "W240 Grade"], badge: "Premium", gradient: "from-yellow-400 to-amber-400", iconBg: "bg-yellow-100", emoji: "🥜" },
-  { id: 3, name: "Afghan Raisins", category: "dry-fruits", description: "Plump, sun-dried raisins from Afghanistan — naturally sweet with no added sugar or sulphur.", tags: ["Natural", "No Additives"], gradient: "from-purple-400 to-violet-400", iconBg: "bg-purple-100", emoji: "🍇" },
-  { id: 4, name: "Chilean Walnuts", category: "dry-fruits", description: "Crispy, brain-shaped walnuts packed with omega-3 fatty acids and antioxidants for heart health.", tags: ["Heart Healthy", "Omega-3"], gradient: "from-brown-400 to-amber-600", iconBg: "bg-amber-100", emoji: "🧠" },
-  { id: 5, name: "Premium Pistachios", category: "dry-fruits", description: "Roasted and salted pistachios with a satisfying crunch — naturally flavourful and protein-rich.", tags: ["High Protein", "Roasted"], badge: "New", gradient: "from-green-400 to-lime-400", iconBg: "bg-green-100", emoji: "💚" },
-  { id: 6, name: "Chia Seeds", category: "seeds", description: "Tiny but mighty — chia seeds loaded with fibre, omega-3, and plant-based protein for your wellness routine.", tags: ["Superfood", "Omega-3"], badge: "Trending", gradient: "from-slate-400 to-gray-500", iconBg: "bg-slate-100", emoji: "⚫" },
-  { id: 7, name: "Flax Seeds", category: "seeds", description: "Golden and brown flax seeds rich in lignans and ALA omega-3 — great in smoothies, yoghurt, and baking.", tags: ["Antioxidant", "Fibre Rich"], gradient: "from-amber-500 to-yellow-500", iconBg: "bg-amber-100", emoji: "🌾" },
-  { id: 8, name: "Pumpkin Seeds", category: "seeds", description: "Crunchy roasted pumpkin seeds packed with zinc, magnesium, and plant protein — ideal as a snack.", tags: ["High Zinc", "Roasted"], gradient: "from-orange-400 to-amber-500", iconBg: "bg-orange-100", emoji: "🎃" },
-  { id: 9, name: "Sunflower Seeds", category: "seeds", description: "Light and crunchy sunflower seeds high in Vitamin E and selenium — great for salads and trail mixes.", tags: ["Vitamin E", "Antioxidant"], gradient: "from-yellow-400 to-orange-400", iconBg: "bg-yellow-100", emoji: "🌻" },
-  { id: 10, name: "Cardamom (Elaichi)", category: "spices", description: "Fragrant green cardamom pods bursting with aroma — sourced from the spice gardens of Kerala.", tags: ["Aromatic", "Kerala Origin"], badge: "Premium", gradient: "from-green-500 to-emerald-500", iconBg: "bg-green-100", emoji: "🌿" },
-  { id: 11, name: "Cinnamon Sticks", category: "spices", description: "True Ceylon cinnamon sticks with a warm, sweet-spicy flavour — perfect for teas, desserts, and curries.", tags: ["Ceylon", "Authentic"], gradient: "from-amber-600 to-brown-500", iconBg: "bg-amber-100", emoji: "🍂" },
-  { id: 12, name: "Black Pepper Whole", category: "spices", description: "Bold, pungent whole black peppercorns freshly packed to preserve essential oils and maximum flavour.", tags: ["Bold Flavour", "Fresh Packed"], gradient: "from-gray-600 to-slate-700", iconBg: "bg-gray-100", emoji: "⚫" },
-  { id: 13, name: "Trail Mix Snack Pack", category: "healthy-foods", description: "A perfectly balanced mix of nuts, seeds, and dried fruits — the ideal on-the-go energy booster.", tags: ["On-The-Go", "Energy Boost"], badge: "Popular", gradient: "from-orange-400 to-red-400", iconBg: "bg-orange-100", emoji: "🥗" },
-  { id: 14, name: "Mixed Nuts Roasted", category: "healthy-foods", description: "A premium blend of lightly roasted almonds, cashews, walnuts, and pistachios with a hint of Himalayan salt.", tags: ["Roasted", "Premium Blend"], gradient: "from-amber-400 to-yellow-400", iconBg: "bg-amber-100", emoji: "🍿" },
-  { id: 15, name: "Festive Dry Fruit Hamper", category: "gift-hampers", description: "An elegantly curated hamper with premium dry fruits, nuts, and saffron — perfect for gifting every occasion.", tags: ["Festive", "Luxury"], badge: "Bestseller", gradient: "from-pink-400 to-rose-500", iconBg: "bg-pink-100", emoji: "🎁" },
-  { id: 16, name: "Corporate Gift Box", category: "gift-hampers", description: "Bespoke corporate gift boxes with custom branding — premium contents, premium impression.", tags: ["Corporate", "Custom Branding"], gradient: "from-slate-500 to-gray-600", iconBg: "bg-slate-100", emoji: "🎀" },
-  { id: 17, name: "White Label Nuts Range", category: "private-label", description: "Your brand, our quality. Full-range private label nuts collection with flexible MOQ and custom packaging.", tags: ["Custom Branding", "Flexible MOQ"], badge: "B2B", gradient: "from-indigo-500 to-blue-600", iconBg: "bg-indigo-100", emoji: "🏷️" },
-  { id: 18, name: "Private Label Seeds Range", category: "private-label", description: "Launch your own seeds brand with our private label programme — from product selection to branded packaging.", tags: ["Full Support", "B2B"], gradient: "from-teal-500 to-cyan-600", iconBg: "bg-teal-100", emoji: "📦" },
+  // ── Dry Fruits ──
+  {
+    id: 1,
+    name: "Premium California Almonds",
+    category: "dry-fruits",
+    description: "Crisp, rich, and naturally nutritious — our California almonds are selected for maximum freshness.",
+    tags: ["Bestseller", "High Protein"],
+    badge: "Bestseller",
+    gradient: "from-amber-400 to-orange-400",
+    iconBg: "bg-amber-100",
+    image: imgAlmonds,
+    enquireUrl: "https://kesarco.com/products/raw-almonds",
+  },
+  {
+    id: 2,
+    name: "Whole Cashew W240",
+    category: "dry-fruits",
+    description: "Large, buttery whole cashews with a clean snap and superior taste — perfect for snacking and cooking.",
+    tags: ["Premium", "W240 Grade"],
+    badge: "Premium",
+    gradient: "from-yellow-400 to-amber-400",
+    iconBg: "bg-yellow-100",
+    image: imgCashews,
+    enquireUrl: "https://kesarco.com/products/premium-cashews",
+  },
+  {
+    id: 3,
+    name: "Black Raisins",
+    category: "dry-fruits",
+    description: "Plump, sun-dried black raisins — naturally sweet with no added sugar or sulphur.",
+    tags: ["Natural", "No Additives"],
+    gradient: "from-purple-400 to-violet-400",
+    iconBg: "bg-purple-100",
+    image: imgBlackRaisins,
+    enquireUrl: "https://kesarco.com/products/black-raisins-kali-kishmish",
+  },
+  {
+    id: 4,
+    name: "Green Raisins",
+    category: "dry-fruits",
+    description: "Premium sun-dried green raisins packed with natural sweetness, iron, and antioxidants.",
+    tags: ["Natural", "Iron Rich"],
+    gradient: "from-lime-400 to-green-400",
+    iconBg: "bg-lime-100",
+    image: imgGreenRaisins,
+    enquireUrl: "https://kesarco.com/products/green-raisins",
+  },
+  {
+    id: 5,
+    name: "Premium Pistachios",
+    category: "dry-fruits",
+    description: "Roasted and salted pistachios with a satisfying crunch — naturally flavourful and protein-rich.",
+    tags: ["High Protein", "Roasted"],
+    badge: "New",
+    gradient: "from-green-400 to-lime-400",
+    iconBg: "bg-green-100",
+    image: imgPista,
+    enquireUrl: "https://kesarco.com/products/pistachios",
+  },
+  {
+    id: 6,
+    name: "Dried Figs (Anjeer)",
+    category: "dry-fruits",
+    description: "Soft, naturally sweet dried figs loaded with fibre, calcium, and antioxidants.",
+    tags: ["High Fibre", "Calcium Rich"],
+    gradient: "from-rose-400 to-pink-400",
+    iconBg: "bg-rose-100",
+    image: imgFig,
+    enquireUrl: "https://kesarco.com/products/dried-afghani-figs",
+  },
+  {
+    id: 7,
+    name: "Black Currant",
+    category: "dry-fruits",
+    description: "Tangy and sweet dried black currants bursting with Vitamin C and flavour.",
+    tags: ["Vitamin C", "Antioxidant"],
+    gradient: "from-violet-500 to-purple-600",
+    iconBg: "bg-violet-100",
+    image: imgBlackCurrant,
+    enquireUrl: "https://kesarco.com/products/dried-black-currant",
+  },
+  // ── Seeds ──
+  {
+    id: 8,
+    name: "Chia Seeds",
+    category: "seeds",
+    description: "Tiny but mighty — chia seeds loaded with fibre, omega-3, and plant-based protein for your wellness routine.",
+    tags: ["Superfood", "Omega-3"],
+    badge: "Trending",
+    gradient: "from-slate-400 to-gray-500",
+    iconBg: "bg-slate-100",
+    image: imgChia,
+    enquireUrl: "https://kesarco.com/products/chia-seeds-200gm",
+  },
+  {
+    id: 9,
+    name: "Flax Seeds",
+    category: "seeds",
+    description: "Golden and brown flax seeds rich in lignans and ALA omega-3 — great in smoothies, yoghurt, and baking.",
+    tags: ["Antioxidant", "Fibre Rich"],
+    gradient: "from-amber-500 to-yellow-500",
+    iconBg: "bg-amber-100",
+    image: imgFlax,
+    enquireUrl: "https://kesarco.com/products/flax-seeds-200gm",
+  },
+  {
+    id: 10,
+    name: "Pumpkin Seeds",
+    category: "seeds",
+    description: "Crunchy roasted pumpkin seeds packed with zinc, magnesium, and plant protein — ideal as a snack.",
+    tags: ["High Zinc", "Roasted"],
+    gradient: "from-orange-400 to-amber-500",
+    iconBg: "bg-orange-100",
+    image: imgPumpkin,
+    enquireUrl: "https://kesarco.com/products/pumpkin-seeds-200gm",
+  },
+  {
+    id: 11,
+    name: "Sunflower Seeds",
+    category: "seeds",
+    description: "Light and crunchy sunflower seeds high in Vitamin E and selenium — great for salads and trail mixes.",
+    tags: ["Vitamin E", "Antioxidant"],
+    gradient: "from-yellow-400 to-orange-400",
+    iconBg: "bg-yellow-100",
+    image: imgSunflower,
+    enquireUrl: "https://kesarco.com/products/sunflower-seeds-200gm",
+  },
+  {
+    id: 12,
+    name: "Basil Seeds (Sabja)",
+    category: "seeds",
+    description: "Cooling basil seeds perfect for drinks and desserts — rich in fibre and naturally hydrating.",
+    tags: ["Cooling", "High Fibre"],
+    gradient: "from-emerald-400 to-teal-500",
+    iconBg: "bg-emerald-100",
+    image: imgBasil,
+    enquireUrl: "https://kesarco.com/products/basil-seeds-sabja-seeds",
+  },
+  {
+    id: 13,
+    name: "Watermelon Seeds",
+    category: "seeds",
+    description: "Roasted watermelon seeds — a crunchy, protein-rich snack with magnesium and zinc.",
+    tags: ["High Protein", "Magnesium"],
+    gradient: "from-red-400 to-rose-400",
+    iconBg: "bg-red-100",
+    image: imgWatermelon,
+    enquireUrl: "https://kesarco.com/products/watermelon-seeds",
+  },
+  // ── Whole Spices ──
+  {
+    id: 14,
+    name: "Green Cardamom (Elaichi)",
+    category: "spices",
+    description: "Fragrant green cardamom pods bursting with aroma — sourced from the spice gardens of Kerala.",
+    tags: ["Aromatic", "Kerala Origin"],
+    badge: "Premium",
+    gradient: "from-green-500 to-emerald-500",
+    iconBg: "bg-green-100",
+    image: imgGreenCardamom,
+    enquireUrl: "https://kesarco.com/products/green-cardamom-40gm",
+  },
+  {
+    id: 15,
+    name: "Cinnamon Sticks",
+    category: "spices",
+    description: "True cinnamon sticks with a warm, sweet-spicy flavour — perfect for teas, desserts, and curries.",
+    tags: ["Authentic", "Warm Flavour"],
+    gradient: "from-amber-600 to-orange-500",
+    iconBg: "bg-amber-100",
+    image: imgCinnamon,
+    enquireUrl: "https://kesarco.com/products/cinnamom-sticks-50gm-1",
+  },
+  {
+    id: 16,
+    name: "Whole Black Pepper",
+    category: "spices",
+    description: "Bold, pungent whole black peppercorns freshly packed to preserve essential oils and maximum flavour.",
+    tags: ["Bold Flavour", "Fresh Packed"],
+    gradient: "from-gray-600 to-slate-700",
+    iconBg: "bg-gray-100",
+    image: imgBlackPepper,
+    enquireUrl: "https://kesarco.com/products/black-pepper",
+  },
+  {
+    id: 17,
+    name: "Cumin Seeds (Jeera)",
+    category: "spices",
+    description: "Earthy, aromatic cumin seeds essential in Indian cooking — sourced from premium growing regions.",
+    tags: ["Digestive", "Essential Spice"],
+    gradient: "from-yellow-600 to-amber-600",
+    iconBg: "bg-yellow-100",
+    image: imgCumin,
+    enquireUrl: "https://kesarco.com/products/jeeracumin-seeds",
+  },
+  {
+    id: 18,
+    name: "Whole Red Chilli",
+    category: "spices",
+    description: "Fiery whole red chillies that add bold heat and vibrant colour to every dish.",
+    tags: ["Bold Heat", "Natural"],
+    gradient: "from-red-500 to-rose-600",
+    iconBg: "bg-red-100",
+    image: imgRedChilli,
+    enquireUrl: "https://kesarco.com/products/red-chilli-whole-lal-mirch?_pos=1&_psq=red+chilli&_psid=9af4bee07&_ss=e",
+  },
+  {
+    id: 19,
+    name: "Turmeric (Haldi)",
+    category: "spices",
+    description: "Pure whole turmeric with high curcumin content — the golden spice of health and flavour.",
+    tags: ["Anti-Inflammatory", "High Curcumin"],
+    badge: "Popular",
+    gradient: "from-yellow-400 to-amber-500",
+    iconBg: "bg-yellow-100",
+    image: imgTurmeric,
+    enquireUrl: "https://kesarco.com/products/turmeric-powder-rich-in-curcumin",
+  },
+  {
+    id: 20,
+    name: "Bay Leaves (Tej Patta)",
+    category: "spices",
+    description: "Fragrant whole bay leaves that lend deep aroma and flavour to slow-cooked dishes and biryanis.",
+    tags: ["Aromatic", "Natural"],
+    gradient: "from-green-600 to-teal-600",
+    iconBg: "bg-green-100",
+    image: imgBayLeaves,
+    enquireUrl: "https://kesarco.com/products/dried-bay-leaves-tej-patta-100gm",
+  },
+  {
+    id: 21,
+    name: "Star Anise (Chakra Phool)",
+    category: "spices",
+    description: "Beautiful star-shaped spice with a sweet, licorice-like flavour — essential in biryanis and chai.",
+    tags: ["Distinct Flavour", "Aromatic"],
+    gradient: "from-amber-500 to-brown-500",
+    iconBg: "bg-amber-100",
+    image: imgStarAnise,
+    enquireUrl: "https://kesarco.com/products/star-anise-20gm",
+  },
+  {
+    id: 22,
+    name: "Fenugreek Seeds (Methi)",
+    category: "spices",
+    description: "Slightly bitter, highly nutritious fenugreek seeds used in curries, pickling, and wellness routines.",
+    tags: ["Nutritious", "Digestive"],
+    gradient: "from-amber-400 to-yellow-500",
+    iconBg: "bg-amber-100",
+    image: imgFenugreek,
+    enquireUrl: "https://kesarco.com/products/fenugreekmethi-seeds",
+  },
 ];
-
-
-
-
 
 // ─── Sub-Components ───────────────────────────────────────────────────────────
 function ProductCard({ product }: { product: Product }) {
@@ -159,21 +381,23 @@ function ProductCard({ product }: { product: Product }) {
       whileHover={{ y: -10, scale: 1.02 }}
       className="group relative rounded-3xl border border-[var(--border)] bg-[var(--surface)] shadow-[var(--shadow-sm)] overflow-hidden transition-all duration-300 cursor-default"
     >
-      {/* Image / Visual Area */}
-      <div className={`relative h-48 bg-gradient-to-br ${product.gradient} flex items-center justify-center overflow-hidden`}>
-        <motion.span
-          className="text-7xl select-none"
-          whileHover={{ scale: 1.2, rotate: 5 }}
-          transition={{ duration: 0.3 }}
-        >
-          {product.emoji}
-        </motion.span>
+      {/* Image Area */}
+      <div className="relative h-56 bg-white flex items-center justify-center overflow-hidden">
+        <motion.img
+          src={product.image}
+          alt={product.name}
+          className="w-full h-full object-contain select-none"
+          style={{ padding: "0px" }}
+          whileHover={{ scale: 1.06 }}
+          transition={{ duration: 0.4 }}
+          draggable={false}
+        />
         {product.badge && (
           <span className="absolute top-4 right-4 rounded-full bg-white/90 px-3 py-1 text-xs font-bold text-[var(--text)] shadow-sm">
             {product.badge}
           </span>
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       </div>
 
       {/* Content */}
@@ -182,49 +406,26 @@ function ProductCard({ product }: { product: Product }) {
         <p className="mt-2 text-sm leading-6 text-[var(--text-secondary)] line-clamp-2">{product.description}</p>
         <div className="mt-4 flex flex-wrap gap-2">
           {product.tags.map((tag) => (
-            <span key={tag} className="rounded-full border border-[var(--border)] bg-[var(--surface-secondary)] px-3 py-1 text-xs font-medium text-[var(--text-secondary)]">
+            <span
+              key={tag}
+              className="rounded-full border border-[var(--border)] bg-[var(--surface-secondary)] px-3 py-1 text-xs font-medium text-[var(--text-secondary)]"
+            >
               {tag}
             </span>
           ))}
         </div>
-        <button className="mt-5 w-full rounded-2xl border border-[var(--border)] py-2.5 text-sm font-semibold text-[var(--text-secondary)] hover:border-[var(--primary)] hover:text-[var(--primary)] hover:bg-[color-mix(in_srgb,var(--primary)_5%,white)] transition-all duration-200 flex items-center justify-center gap-2">
+        <a
+          href={product.enquireUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-5 w-full rounded-2xl border border-[var(--border)] py-2.5 text-sm font-semibold text-[var(--text-secondary)] hover:border-[var(--primary)] hover:text-[var(--primary)] hover:bg-[color-mix(in_srgb,var(--primary)_5%,white)] transition-all duration-200 flex items-center justify-center gap-2"
+        >
           Enquire Now <ArrowRight size={14} />
-        </button>
+        </a>
       </div>
     </motion.div>
   );
 }
-
-// function FAQItem({ faq }: { faq: FAQ }) {
-//   const [open, setOpen] = useState(false);
-//   return (
-//     <motion.div variants={childFade} className="rounded-3xl border border-[var(--border)] bg-[var(--surface)] overflow-hidden shadow-[var(--shadow-sm)]">
-//       <button
-//         onClick={() => setOpen(!open)}
-//         className="w-full flex items-center justify-between gap-4 p-8 text-left hover:bg-[var(--surface-secondary)] transition-colors duration-200"
-//         aria-expanded={open}
-//       >
-//         <span className="text-lg font-bold text-[var(--text)]">{faq.question}</span>
-//         <span className="flex-shrink-0 h-8 w-8 rounded-full bg-[color-mix(in_srgb,var(--primary)_10%,white)] flex items-center justify-center">
-//           {open ? <ChevronUp size={16} className="text-[var(--primary)]" /> : <ChevronDown size={16} className="text-[var(--primary)]" />}
-//         </span>
-//       </button>
-//       <AnimatePresence>
-//         {open && (
-//           <motion.div
-//             initial={{ height: 0, opacity: 0 }}
-//             animate={{ height: "auto", opacity: 1 }}
-//             exit={{ height: 0, opacity: 0 }}
-//             transition={{ duration: 0.3, ease: "easeInOut" }}
-//             className="overflow-hidden"
-//           >
-//             <p className="px-8 pb-8 leading-8 text-[var(--text-secondary)]">{faq.answer}</p>
-//           </motion.div>
-//         )}
-//       </AnimatePresence>
-//     </motion.div>
-//   );
-// }
 
 // ─── Main Component ───────────────────────────────────────────────────────────
 export default function Products() {
@@ -237,8 +438,6 @@ export default function Products() {
 
   return (
     <main className="overflow-hidden bg-[var(--background)]">
-
-
 
       {/* ── FEATURED PRODUCTS GRID ── */}
       <section id="featured" className="py-32 bg-[var(--background)]">
@@ -298,8 +497,6 @@ export default function Products() {
         </div>
       </section>
 
-      
-
       {/* ── QUALITY PROMISE ── */}
       <section className="py-32 bg-[var(--background)]">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
@@ -312,13 +509,13 @@ export default function Products() {
               </p>
               <div className="mt-10 space-y-4">
                 {[
-                  ["Sourced from verified, premium-grade suppliers", "✓"],
-                  ["Lab-tested for contaminants and purity", "✓"],
-                  ["Processed in hygienic, certified facilities", "✓"],
-                  ["Sealed in food-grade airtight packaging", "✓"],
-                  ["Inspected at every stage of production", "✓"],
-                  ["Batch-traceable from farm to shelf", "✓"],
-                ].map(([point]) => (
+                  "Sourced from verified, premium-grade suppliers",
+                  "Lab-tested for contaminants and purity",
+                  "Processed in hygienic, certified facilities",
+                  "Sealed in food-grade airtight packaging",
+                  "Inspected at every stage of production",
+                  "Batch-traceable from farm to shelf",
+                ].map((point) => (
                   <div key={point} className="flex items-center gap-4 rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-4">
                     <div className="h-8 w-8 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
                       <CheckCircle2 size={16} className="text-green-600" />
@@ -338,7 +535,12 @@ export default function Products() {
                   Every product you receive from Nuts Delish has passed our multi-stage quality gate. We don't just talk about quality — we build it into every step of our process.
                 </p>
                 <div className="mt-10 grid grid-cols-2 gap-4 relative">
-                  {[["100%", "Natural Ingredients"], ["0", "Artificial Additives"], ["Multi-Stage", "QC Process"], ["FSSAI", "Certified"]].map(([v, l]) => (
+                  {[
+                    ["100%", "Natural Ingredients"],
+                    ["0", "Artificial Additives"],
+                    ["Multi-Stage", "QC Process"],
+                    ["FSSAI", "Certified"],
+                  ].map(([v, l]) => (
                     <div key={l} className="rounded-2xl bg-white/15 p-4 text-center">
                       <p className="text-xl font-black">{v}</p>
                       <p className="text-xs opacity-75 mt-1">{l}</p>
@@ -350,8 +552,6 @@ export default function Products() {
           </div>
         </div>
       </section>
-
-     
 
     </main>
   );

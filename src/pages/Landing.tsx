@@ -1,5 +1,7 @@
 import { motion, type Variants } from "framer-motion";
-
+import KesarcoLogo from "../assets/Logo/Kesarco.png";
+import TeaBetterLogo from "../assets/Logo/TeaBetter.png";
+import BruniqLogo from "../assets/Logo/Bruniq.png";
 import {
   ArrowRight,
   Leaf,
@@ -75,27 +77,30 @@ const whyChooseUs = [
 const brands = [
   {
     name: "KesarCo",
+    logo: KesarcoLogo,
+    website: "https://kesarco.com",
     tagline: "Premium Grocery & Healthy Snacks",
     desc: "Curated dry fruits, spices, and grocery staples sourced from trusted origins and packed for maximum freshness.",
-    emoji: "🌟",
     color: "from-amber-500 to-orange-500",
     bg: "bg-amber-50",
     border: "border-amber-200",
   },
   {
     name: "Tea Better",
+    logo: TeaBetterLogo,
+    website: "https://teabetter.in",
     tagline: "Wellness & Specialty Teas",
     desc: "Herbal, wellness, and specialty teas crafted for the health-conscious consumer who values flavour and function.",
-    emoji: "🍃",
     color: "from-green-500 to-emerald-600",
     bg: "bg-green-50",
     border: "border-green-200",
   },
   {
     name: "Bruniq",
+    logo: BruniqLogo,
+    website: "https://bruniqclub.com",
     tagline: "Better-For-You Foods",
     desc: "Clean-label, better-for-you food products designed for modern, health-aware lifestyles.",
-    emoji: "💜",
     color: "from-rose-500 to-pink-600",
     bg: "bg-rose-50",
     border: "border-rose-200",
@@ -317,34 +322,145 @@ export default function Landing() {
 
   
 
-      {/* ══════════════════════════════════════════════════════
-          BRAND PORTFOLIO PREVIEW
-      ══════════════════════════════════════════════════════ */}
-      <section className="py-32 bg-[var(--background)]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mb-20">
-            <span className="text-sm font-semibold uppercase tracking-[4px] text-[var(--primary)]">Our Brands</span>
-            <h2 className="mt-4 text-5xl font-black text-[var(--text)]">A Portfolio Built For <span className="text-[var(--primary)]">Every Lifestyle</span></h2>
-            <p className="mt-6 text-lg text-[var(--text-secondary)] max-w-2xl mx-auto">Three distinct brands under one commitment — quality, innovation, and consumer delight.</p>
-          </motion.div>
-          <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true }}
-            className="grid sm:grid-cols-3 gap-8">
-            {brands.map((brand) => (
-              <motion.div key={brand.name} variants={childFade} whileHover={{ y: -10 }}
-                className={`rounded-3xl border ${brand.border} ${brand.bg} p-8 cursor-default transition-all duration-300`}>
-                <span className="text-5xl">{brand.emoji}</span>
-                <h3 className={`mt-6 text-2xl font-black bg-gradient-to-r ${brand.color} bg-clip-text text-transparent`}>{brand.name}</h3>
-                <p className="mt-1 text-xs font-semibold uppercase tracking-widest text-[var(--text-secondary)]">{brand.tagline}</p>
-                <p className="mt-4 text-sm leading-7 text-[var(--text-secondary)]">{brand.desc}</p>
-                <a href="/about" className={`mt-6 inline-flex items-center gap-1.5 text-sm font-semibold bg-gradient-to-r ${brand.color} bg-clip-text text-transparent`}>
-                  Learn More <ArrowRight size={14} />
-                </a>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
+    {/* ══════════════════════════════════════════════════════
+      BRAND PORTFOLIO PREVIEW
+══════════════════════════════════════════════════════ */}
+{/* ══════════════════════════════════════════════════════
+      BRAND PORTFOLIO PREVIEW
+══════════════════════════════════════════════════════ */}
+<section className="py-28 bg-[var(--background)]">
+  <div className="max-w-7xl mx-auto px-6 lg:px-10">
 
+    {/* Heading */}
+    <motion.div
+      variants={fadeUp}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      className="text-center mb-16"
+    >
+      <span className="text-sm font-semibold uppercase tracking-[4px] text-[var(--primary)]">
+        Our Brands
+      </span>
+
+      <h2 className="mt-4 text-5xl font-black text-[var(--text)]">
+        A Portfolio Built For{" "}
+        <span className="text-[var(--primary)]">
+          Every Lifestyle
+        </span>
+      </h2>
+
+      <p className="mt-5 text-lg text-[var(--text-secondary)] max-w-2xl mx-auto">
+        Three distinct brands united by one commitment —
+        premium quality, innovation and customer delight.
+      </p>
+    </motion.div>
+
+    {/* Cards */}
+    <motion.div
+      variants={stagger}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+    >
+      {brands.map((brand, index) => (
+        <motion.a
+          key={brand.name}
+          href={brand.website}
+          target="_blank"
+          rel="noopener noreferrer"
+          variants={childFade}
+          whileHover={{
+            y: -8,
+            scale: 1.02,
+          }}
+          transition={{
+            type: "spring",
+            stiffness: 280,
+            damping: 18,
+          }}
+          className="block"
+        >
+          <motion.div
+            animate={{
+              y: [0, -4, 0],
+            }}
+            transition={{
+              duration: 3.5,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: index * 0.4,
+            }}
+            className={`group relative overflow-hidden rounded-3xl border ${brand.border} ${brand.bg} p-6 min-h-[250px] shadow-md hover:shadow-2xl transition-all duration-500`}
+          >
+
+            {/* Glow */}
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500">
+              <div className="absolute -top-24 -right-24 h-52 w-52 rounded-full bg-white/30 blur-3xl" />
+              <div className="absolute -bottom-24 -left-24 h-52 w-52 rounded-full bg-white/20 blur-3xl" />
+            </div>
+
+            {/* Shine */}
+            <div className="absolute -left-28 top-0 h-full w-16 rotate-12 bg-white/40 blur-md opacity-0 group-hover:opacity-100 group-hover:left-[130%] transition-all duration-1000" />
+
+            {/* Logo */}
+            <motion.img
+              src={brand.logo}
+              alt={brand.name}
+              whileHover={{
+                scale: 1.05,
+                rotate: [-1, 1, -1],
+              }}
+              transition={{
+                duration: 0.4,
+              }}
+              className="relative h-12 w-auto object-contain"
+            />
+
+            {/* Tagline */}
+            <p className="relative mt-6 text-[11px] uppercase tracking-[3px] font-semibold text-[var(--text-secondary)]">
+              {brand.tagline}
+            </p>
+
+            {/* Description */}
+            <p className="relative mt-3 text-sm leading-6 text-[var(--text-secondary)] line-clamp-3">
+              {brand.desc}
+            </p>
+
+            {/* Bottom Line */}
+            <div
+              className={`relative mt-5 h-[3px] w-10 rounded-full bg-gradient-to-r ${brand.color} transition-all duration-500 group-hover:w-24`}
+            />
+
+            {/* CTA */}
+            <div
+              className={`relative mt-6 inline-flex items-center gap-2 font-semibold bg-gradient-to-r ${brand.color} bg-clip-text text-transparent`}
+            >
+              Visit Website
+
+              <motion.div
+                animate={{
+                  x: [0, 5, 0],
+                }}
+                transition={{
+                  duration: 1.5,
+                  repeat: Infinity,
+                }}
+              >
+                <ArrowRight
+                  size={17}
+                  className="text-[var(--primary)]"
+                />
+              </motion.div>
+            </div>
+
+          </motion.div>
+        </motion.a>
+      ))}
+    </motion.div>
+  </div>
+</section>
       {/* ══════════════════════════════════════════════════════
           CORE VALUES
       ══════════════════════════════════════════════════════ */}

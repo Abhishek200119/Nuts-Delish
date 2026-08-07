@@ -6,18 +6,16 @@ import {
   ShieldCheck,
   TrendingUp,
   Heart,
-
   CheckCircle2,
   ArrowRight,
-  ArrowUpRight,
   Building2,
   Zap,
   Target,
 } from "lucide-react";
 
-import KesarcoLogo from "../assets/Logo/Kesarco.png";
-import TeaBetterLogo from "../assets/Logo/TeaBetter.png";
-import BruniqLogo from "../assets/Logo/Bruniq.png";
+// import KesarcoLogo from "../assets/Logo/Kesarco.png";
+// import TeaBetterLogo from "../assets/Logo/TeaBetter.png";
+// import BruniqLogo from "../assets/Logo/Bruniq.png";
 
 // ─── Animation Variants ───────────────────────────────────────────────────────
 const fadeUp: Variants = {
@@ -41,66 +39,57 @@ const childFade: Variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
 
-// ─── Data ─────────────────────────────────────────────────────────────────────
-// const timeline = [
-//   { year: "2020", title: "Company Founded", desc: "Nuts Delish Private Limited was established with a vision to make premium food accessible to every household." },
-//   { year: "2021", title: "KesarCo Launched", desc: "Our flagship brand KesarCo introduced premium grocery staples, dry fruits, spices, and healthy snacks to the market." },
-//   { year: "2022", title: "Tea Better Introduced", desc: "Tea Better entered the wellness space with herbal, specialty, and premium teas for the health-conscious consumer." },
-//   { year: "2023", title: "Bruniq Unveiled", desc: "Bruniq brought better-for-you food products to the portfolio, expanding our footprint in the healthy foods segment." },
-//   { year: "2024", title: "Omnichannel Expansion", desc: "Launched across e-commerce, quick commerce, major marketplaces, and offline retail — reaching every corner of India." },
-//   { year: "2025+", title: "National Growth", desc: "Scaling manufacturing, deepening distribution, and innovating new products to serve evolving consumer lifestyles." },
-// ];
 
-const brands = [
-  {
-    name: "KesarCo",
-    logo: KesarcoLogo,
-    website: "https://kesarco.com",
-    tagline: "Premium Grocery & Healthy Snacks",
-    desc: "KesarCo offers a curated range of premium grocery staples — from finest dry fruits and nuts to aromatic spices and healthy snacks. Every product is sourced from trusted origins and packaged to preserve purity and freshness.",
-    color: "from-amber-500 to-orange-500",
-    bg: "bg-amber-50",
-    border: "border-amber-200",
-    items: [
-      "Premium Dry Fruits",
-      "Whole Spices",
-      "Healthy Snacks",
-      "Grocery Staples",
-    ],
-  },
-  {
-    name: "Tea Better",
-    logo: TeaBetterLogo,
-    website: "https://teabetter.in",
-    tagline: "Wellness & Specialty Teas",
-    desc: "Tea Better specializes in herbal, wellness, and specialty teas that support a healthy lifestyle. From classic blends to innovative infusions, every sip is crafted for taste, wellness, and mindful living.",
-    color: "from-green-500 to-emerald-600",
-    bg: "bg-green-50",
-    border: "border-green-200",
-    items: [
-      "Herbal Teas",
-      "Wellness Blends",
-      "Green Teas",
-      "Specialty Infusions",
-    ],
-  },
-  {
-    name: "Bruniq",
-    logo: BruniqLogo,
-    website: "https://bruniqclub.com",
-    tagline: "Better-For-You Foods",
-    desc: "Bruniq features a range of better-for-you food products designed for the modern, health-aware consumer. Clean ingredients, bold flavors, and functional nutrition come together in every Bruniq offering.",
-    color: "from-rose-500 to-pink-600",
-    bg: "bg-rose-50",
-    border: "border-rose-200",
-    items: [
-      "Healthy Foods",
-      "Nutritious Snacks",
-      "Clean Ingredients",
-      "Functional Products",
-    ],
-  },
-];
+// const brands = [
+//   {
+//     name: "KesarCo",
+//     logo: KesarcoLogo,
+//     website: "https://kesarco.com",
+//     tagline: "Premium Grocery & Healthy Snacks",
+//     desc: "KesarCo offers a curated range of premium grocery staples — from finest dry fruits and nuts to aromatic spices and healthy snacks. Every product is sourced from trusted origins and packaged to preserve purity and freshness.",
+//     color: "from-amber-500 to-orange-500",
+//     bg: "bg-amber-50",
+//     border: "border-amber-200",
+//     items: [
+//       "Premium Dry Fruits",
+//       "Whole Spices",
+//       "Healthy Snacks",
+//       "Grocery Staples",
+//     ],
+//   },
+//   {
+//     name: "Tea Better",
+//     logo: TeaBetterLogo,
+//     website: "https://teabetter.in",
+//     tagline: "Wellness & Specialty Teas",
+//     desc: "Tea Better specializes in herbal, wellness, and specialty teas that support a healthy lifestyle. From classic blends to innovative infusions, every sip is crafted for taste, wellness, and mindful living.",
+//     color: "from-green-500 to-emerald-600",
+//     bg: "bg-green-50",
+//     border: "border-green-200",
+//     items: [
+//       "Herbal Teas",
+//       "Wellness Blends",
+//       "Green Teas",
+//       "Specialty Infusions",
+//     ],
+//   },
+//   {
+//     name: "Bruniq",
+//     logo: BruniqLogo,
+//     website: "https://bruniqclub.com",
+//     tagline: "Better-For-You Foods",
+//     desc: "Bruniq features a range of better-for-you food products designed for the modern, health-aware consumer. Clean ingredients, bold flavors, and functional nutrition come together in every Bruniq offering.",
+//     color: "from-rose-500 to-pink-600",
+//     bg: "bg-rose-50",
+//     border: "border-rose-200",
+//     items: [
+//       "Healthy Foods",
+//       "Nutritious Snacks",
+//       "Clean Ingredients",
+//       "Functional Products",
+//     ],
+//   },
+// ];
 const timeline = [
   {
     year: "2020",
@@ -239,186 +228,123 @@ export default function About() {
         </div>
       </section>
 
-    
 
-     {/* ── JOURNEY TIMELINE ── */}
-<section className="py-32 bg-[var(--surface)] overflow-hidden">
-  <div className="max-w-6xl mx-auto px-6">
 
-    <motion.div
-      variants={fadeUp}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      className="text-center mb-24"
-    >
-      <span className="text-sm font-semibold uppercase tracking-[4px] text-[var(--primary)]">
-        Our Journey
-      </span>
+      {/* Desktop Timeline */}
+      <div className="relative">
+        {/* Center Line */}
+        <div className="hidden lg:block absolute left-1/2 top-0 h-full w-1 -translate-x-1/2 bg-gradient-to-b from-amber-500 via-orange-500 to-amber-400 rounded-full" />
 
-      <h2 className="mt-4 text-5xl font-black text-[var(--text)]">
-        Milestones That Define Us
-      </h2>
+        <div className="space-y-16">
+          {timeline.map((item, index) => {
+            const left = index % 2 === 0;
 
-      <p className="mt-6 text-lg text-[var(--text-secondary)] max-w-3xl mx-auto">
-        From a bold idea to a multi-brand FMCG company — here's how our journey
-        continues to shape healthier lifestyles across India.
-      </p>
-    </motion.div>
-
-    <div className="relative">
-
-      {/* Animated Line */}
-      <motion.div
-        initial={{ height: 0 }}
-        whileInView={{ height: "100%" }}
-        viewport={{ once: true }}
-        transition={{ duration: 2 }}
-        className="absolute left-1/2 -translate-x-1/2 top-0 w-1 rounded-full bg-gradient-to-b from-amber-400 via-orange-400 to-amber-300 hidden lg:block"
-      />
-
-      <div className="space-y-20">
-
-        {timeline.map((item, index) => {
-
-          const left = index % 2 === 0;
-
-          return (
-
-            <motion.div
-              key={item.year}
-              initial={{
-                opacity: 0,
-                x: left ? -100 : 100,
-              }}
-              whileInView={{
-                opacity: 1,
-                x: 0,
-              }}
-              viewport={{ once: true }}
-              transition={{
-                duration: 0.7,
-              }}
-              className="relative"
-            >
-
-              {/* Desktop Layout */}
-              <div className="hidden lg:grid grid-cols-2 gap-24 items-center">
-
-                {/* LEFT */}
-                <div className={`${left ? "" : "order-2"}`}>
-
-                  {left && (
-                    <motion.div
-                      whileHover={{
-                        y: -10,
-                        scale: 1.03,
-                      }}
-                      className="group relative"
-                    >
-
-                      <div className="absolute inset-0 bg-gradient-to-r from-amber-400/20 to-orange-400/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-all duration-500" />
-
-                      <div className="relative rounded-3xl border border-[var(--border)] bg-[var(--surface-secondary)] p-10 shadow-lg transition-all">
-
-                        <h3 className="text-2xl font-black text-[var(--text)] mb-4">
-                          {item.title}
-                        </h3>
-
-                        <p className="leading-8 text-[var(--text-secondary)]">
-                          {item.desc}
-                        </p>
-
-                      </div>
-
-                    </motion.div>
-                  )}
-
-                </div>
-
-                {/* RIGHT */}
-                <div className={`${left ? "" : "order-1"}`}>
-
-                  {!left && (
-                    <motion.div
-                      whileHover={{
-                        y: -10,
-                        scale: 1.03,
-                      }}
-                      className="group relative"
-                    >
-
-                      <div className="absolute inset-0 bg-gradient-to-r from-amber-400/20 to-orange-400/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-all duration-500" />
-
-                      <div className="relative rounded-3xl border border-[var(--border)] bg-[var(--surface-secondary)] p-10 shadow-lg">
-
-                        <h3 className="text-2xl font-black text-[var(--text)] mb-4">
-                          {item.title}
-                        </h3>
-
-                        <p className="leading-8 text-[var(--text-secondary)]">
-                          {item.desc}
-                        </p>
-
-                      </div>
-
-                    </motion.div>
-                  )}
-
-                </div>
-
-              </div>
-
-              {/* Center Circle */}
+            return (
               <motion.div
-                animate={{
-                  scale: [1, 1.15, 1],
+                key={item.year}
+                initial={{
+                  opacity: 0,
+                  x: left ? -80 : 80,
                 }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
+                whileInView={{
+                  opacity: 1,
+                  x: 0,
                 }}
-                className="hidden lg:flex absolute left-1/2 top-10 -translate-x-1/2 h-20 w-20 rounded-full bg-gradient-to-br from-amber-500 to-orange-500 shadow-2xl items-center justify-center z-10"
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="relative"
               >
-                <span className="text-white font-black">
-                  {item.year}
-                </span>
-              </motion.div>
+                <div className="grid lg:grid-cols-2 gap-16 items-center">
 
-              {/* Mobile */}
-              <motion.div
-                whileHover={{ y: -6 }}
-                className="lg:hidden rounded-3xl border border-[var(--border)] bg-[var(--surface-secondary)] p-8 shadow-lg"
-              >
+                  {/* LEFT CARD */}
+                  <div className="flex justify-end">
+                    {left && (
+                      <motion.div
+                        whileHover={{
+                          y: -8,
+                          scale: 1.02,
+                        }}
+                        className="group w-full max-w-md"
+                      >
+                        <div className="rounded-3xl border border-[var(--border)] bg-[var(--surface-secondary)] p-8 shadow-lg transition-all duration-300 group-hover:shadow-2xl">
+                          <h3 className="text-2xl font-bold text-[var(--text)]">
+                            {item.title}
+                          </h3>
 
-                <div className="inline-flex rounded-full bg-gradient-to-r from-amber-500 to-orange-500 px-5 py-2 text-white font-bold mb-4">
-                  {item.year}
+                          <p className="mt-4 leading-8 text-[var(--text-secondary)]">
+                            {item.desc}
+                          </p>
+                        </div>
+                      </motion.div>
+                    )}
+                  </div>
+
+                  {/* RIGHT CARD */}
+                  <div className="flex justify-start">
+                    {!left && (
+                      <motion.div
+                        whileHover={{
+                          y: -8,
+                          scale: 1.02,
+                        }}
+                        className="group w-full max-w-md"
+                      >
+                        <div className="rounded-3xl border border-[var(--border)] bg-[var(--surface-secondary)] p-8 shadow-lg transition-all duration-300 group-hover:shadow-2xl">
+                          <h3 className="text-2xl font-bold text-[var(--text)]">
+                            {item.title}
+                          </h3>
+
+                          <p className="mt-4 leading-8 text-[var(--text-secondary)]">
+                            {item.desc}
+                          </p>
+                        </div>
+                      </motion.div>
+                    )}
+                  </div>
+
+                  {/* Center Year */}
+                  <div className="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+                    <motion.div
+                      animate={{
+                        scale: [1, 1.08, 1],
+                      }}
+                      transition={{
+                        repeat: Infinity,
+                        duration: 2,
+                      }}
+                      className="h-20 w-20 rounded-full bg-gradient-to-br from-amber-500 to-orange-500 shadow-xl flex items-center justify-center"
+                    >
+                      <span className="text-white font-black">
+                        {item.year}
+                      </span>
+                    </motion.div>
+                  </div>
                 </div>
 
-                <h3 className="text-2xl font-black text-[var(--text)] mb-3">
-                  {item.title}
-                </h3>
+                {/* Mobile Layout */}
+                <div className="lg:hidden mt-6">
+                  <div className="rounded-3xl border border-[var(--border)] bg-[var(--surface-secondary)] p-8 shadow-lg">
+                    <div className="inline-flex rounded-full bg-gradient-to-r from-amber-500 to-orange-500 px-5 py-2 text-white font-bold mb-4">
+                      {item.year}
+                    </div>
 
-                <p className="leading-8 text-[var(--text-secondary)]">
-                  {item.desc}
-                </p>
+                    <h3 className="text-2xl font-bold text-[var(--text)]">
+                      {item.title}
+                    </h3>
 
+                    <p className="mt-4 leading-8 text-[var(--text-secondary)]">
+                      {item.desc}
+                    </p>
+                  </div>
+                </div>
               </motion.div>
-
-            </motion.div>
-
-          );
-        })}
-
+            );
+          })}
+        </div>
       </div>
 
-    </div>
-
-  </div>
-</section>
-
- {/* ── BRAND PORTFOLIO ── */}
-<section className="py-32 bg-[var(--background)]">
+      {/* ── BRAND PORTFOLIO ── */}
+      {/* <section className="py-32 bg-[var(--background)]">
   <div className="max-w-7xl mx-auto px-6 lg:px-10">
     <motion.div
       variants={fadeUp}
@@ -456,7 +382,7 @@ export default function About() {
               !isEven ? "lg:flex-row-reverse" : ""
             }`}
           >
-            {/* LEFT CARD */}
+         
             <div className={`${!isEven ? "lg:order-2" : ""}`}>
               <a
                 href={brand.website}
@@ -467,7 +393,6 @@ export default function About() {
                 <div
                   className={`rounded-[40px] ${brand.bg} border ${brand.border} p-12 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl`}
                 >
-                  {/* Brand Logo */}
                   <div className="mb-8">
                     <img
                       src={brand.logo}
@@ -476,17 +401,16 @@ export default function About() {
                     />
                   </div>
 
-                  {/* Tagline */}
+             
                   <p className="text-sm font-semibold uppercase tracking-widest text-[var(--text-secondary)]">
                     {brand.tagline}
                   </p>
 
-                  {/* Description */}
+                 
                   <p className="mt-6 text-lg leading-8 text-[var(--text-secondary)]">
                     {brand.desc}
                   </p>
 
-                  {/* Chips */}
                   <div className="mt-8 flex flex-wrap gap-3">
                     {brand.items.map((item) => (
                       <span
@@ -498,7 +422,7 @@ export default function About() {
                     ))}
                   </div>
 
-                  {/* Button */}
+                
                   <div className="mt-10 inline-flex items-center gap-2 rounded-full bg-[var(--text)] text-white px-6 py-3 font-semibold transition-all duration-300 group-hover:bg-[var(--primary)]">
                     Visit Website
                     <ArrowUpRight
@@ -510,7 +434,7 @@ export default function About() {
               </a>
             </div>
 
-            {/* RIGHT SIDE */}
+          
             <div
               className={`${
                 !isEven ? "lg:order-1" : ""
@@ -556,7 +480,10 @@ export default function About() {
       })}
     </div>
   </div>
-</section>
+</section> */}
+
+
+
       {/* ── VISION & MISSION ── */}
       <section className="py-32 bg-[var(--surface)]">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
@@ -663,7 +590,7 @@ export default function About() {
         </div>
       </section>
 
-   
+
       {/* ── QUALITY STANDARDS ── */}
       <section className="py-32 bg-[var(--surface)]">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
@@ -704,8 +631,6 @@ export default function About() {
           </div>
         </div>
       </section>
-
-    
 
     </main>
   );

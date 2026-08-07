@@ -9,10 +9,6 @@ import {
   CheckCircle2,
   Zap,
   Globe2,
-  Share2,
-  MessageCircle,
-  AtSign,
-  Link2,
 } from "lucide-react";
 
 // ─── Animation Variants ───────────────────────────────────────────────────────
@@ -95,14 +91,6 @@ const inquiryTypes = [
   "Media & Press",
   "Careers",
   "Other",
-];
-
-
-const socialLinks = [
-  { icon: AtSign, label: "Instagram", href: "#", color: "from-pink-500 to-rose-500" },
-  { icon: Share2, label: "Facebook", href: "#", color: "from-blue-600 to-indigo-600" },
-  { icon: MessageCircle, label: "Twitter / X", href: "#", color: "from-sky-500 to-blue-500" },
-  { icon: Link2, label: "LinkedIn", href: "#", color: "from-blue-700 to-blue-900" },
 ];
 
 
@@ -336,25 +324,7 @@ export default function Contact() {
                 })}
               </div>
 
-              {/* Social Links */}
-              <div className="rounded-[24px] border border-[var(--border)] bg-[var(--surface)] p-6">
-                <p className="text-xs font-semibold uppercase tracking-widest text-[var(--text-secondary)] mb-4">Follow Us</p>
-                <div className="grid grid-cols-2 gap-3">
-                  {socialLinks.map((s) => {
-                    const Icon = s.icon;
-                    return (
-                      <a
-                        key={s.label}
-                        href={s.href}
-                        className={`flex items-center gap-3 rounded-2xl bg-gradient-to-r ${s.color} p-3 text-white text-sm font-semibold hover:-translate-y-1 transition-all duration-200`}
-                        aria-label={s.label}
-                      >
-                        <Icon size={18} /> {s.label}
-                      </a>
-                    );
-                  })}
-                </div>
-              </div>
+
             </motion.div>
           </div>
         </div>

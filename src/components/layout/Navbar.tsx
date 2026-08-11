@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import nutsLogo from "../../assets/Logo/Nuts Logo.png";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
@@ -22,9 +23,14 @@ export default function Navbar() {
         {/* Logo */}
         <Link
           to="/"
-          className="bg-gradient-to-r from-[var(--primary)] via-[var(--secondary)] to-[var(--accent)] bg-clip-text text-2xl font-extrabold tracking-tight text-transparent"
+          className="flex items-center"
+          onClick={() => setIsMenuOpen(false)}
         >
-          NutsDelish
+          <img
+            src={nutsLogo}
+            alt="Nuts Delish"
+           className="h-24 w-80 object-contain"
+          />
         </Link>
 
         {/* Navigation */}
@@ -50,7 +56,6 @@ export default function Navbar() {
         </nav>
 
         <div className="flex items-center gap-3">
-         
 
           {/* Mobile Menu Toggle */}
           <button
@@ -76,6 +81,7 @@ export default function Navbar() {
               }`}
             />
           </button>
+
         </div>
       </div>
     </header>

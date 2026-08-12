@@ -320,15 +320,10 @@ export default function Landing() {
   </div>
 </section>
 
-  
-
-    {/* ══════════════════════════════════════════════════════
-      BRAND PORTFOLIO PREVIEW
-══════════════════════════════════════════════════════ */}
 {/* ══════════════════════════════════════════════════════
-      BRAND PORTFOLIO PREVIEW
+    BRAND PORTFOLIO PREVIEW
 ══════════════════════════════════════════════════════ */}
-<section className="py-28 bg-[var(--background)]">
+<section className="py-10 md:py-12 bg-[var(--background)]">
   <div className="max-w-7xl mx-auto px-6 lg:px-10">
 
     {/* Heading */}
@@ -337,20 +332,20 @@ export default function Landing() {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
-      className="text-center mb-16"
+      className="text-center mb-7"
     >
-      <span className="text-sm font-semibold uppercase tracking-[4px] text-[var(--primary)]">
+      <span className="text-xs md:text-sm font-semibold uppercase tracking-[4px] text-[var(--primary)]">
         Our Brands
       </span>
 
-      <h2 className="mt-4 text-5xl font-black text-[var(--text)]">
+      <h2 className="mt-2 text-4xl md:text-5xl font-black text-[var(--text)]">
         A Portfolio Built For{" "}
         <span className="text-[var(--primary)]">
           Every Lifestyle
         </span>
       </h2>
 
-      <p className="mt-5 text-lg text-[var(--text-secondary)] max-w-2xl mx-auto">
+      <p className="mt-3 text-base md:text-lg text-[var(--text-secondary)] max-w-2xl mx-auto">
         Three distinct brands united by one commitment —
         premium quality, innovation and customer delight.
       </p>
@@ -362,9 +357,9 @@ export default function Landing() {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
-      className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+      className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 items-stretch"
     >
-      {brands.map((brand, index) => (
+      {brands.map((brand) => (
         <motion.a
           key={brand.name}
           href={brand.website}
@@ -372,54 +367,39 @@ export default function Landing() {
           rel="noopener noreferrer"
           variants={childFade}
           whileHover={{
-            y: -8,
-            scale: 1.02,
+            y: -5,
+            scale: 1.01,
           }}
           transition={{
             type: "spring",
             stiffness: 280,
-            damping: 18,
+            damping: 20,
           }}
-          className="block"
+          className="block h-full"
         >
-          <motion.div
-            animate={{
-              y: [0, -4, 0],
-            }}
-            transition={{
-              duration: 3.5,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: index * 0.4,
-            }}
-            className={`group relative overflow-hidden rounded-3xl border ${brand.border} ${brand.bg} p-6 min-h-[250px] shadow-md hover:shadow-2xl transition-all duration-500`}
+          <div
+            className={`group relative flex h-full min-h-[300px] flex-col overflow-hidden rounded-3xl border ${brand.border} ${brand.bg} p-6 shadow-md hover:shadow-xl transition-shadow duration-300`}
           >
 
             {/* Glow */}
             <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500">
               <div className="absolute -top-24 -right-24 h-52 w-52 rounded-full bg-white/30 blur-3xl" />
+
               <div className="absolute -bottom-24 -left-24 h-52 w-52 rounded-full bg-white/20 blur-3xl" />
             </div>
 
             {/* Shine */}
             <div className="absolute -left-28 top-0 h-full w-16 rotate-12 bg-white/40 blur-md opacity-0 group-hover:opacity-100 group-hover:left-[130%] transition-all duration-1000" />
 
-            {/* Logo */}
-            <motion.img
+            {/* Logo - NO FLOATING ANIMATION */}
+            <img
               src={brand.logo}
               alt={brand.name}
-              whileHover={{
-                scale: 1.05,
-                rotate: [-1, 1, -1],
-              }}
-              transition={{
-                duration: 0.4,
-              }}
-              className="relative h-12 w-auto object-contain"
+              className="relative h-12 w-auto max-w-[85%] object-contain object-left"
             />
 
             {/* Tagline */}
-            <p className="relative mt-6 text-[11px] uppercase tracking-[3px] font-semibold text-[var(--text-secondary)]">
+            <p className="relative mt-5 text-[11px] uppercase tracking-[3px] font-semibold text-[var(--text-secondary)]">
               {brand.tagline}
             </p>
 
@@ -428,39 +408,36 @@ export default function Landing() {
               {brand.desc}
             </p>
 
-            {/* Bottom Line */}
-            <div
-              className={`relative mt-5 h-[3px] w-10 rounded-full bg-gradient-to-r ${brand.color} transition-all duration-500 group-hover:w-24`}
-            />
+            {/* Bottom Content */}
+            <div className="relative mt-auto pt-5">
 
-            {/* CTA */}
-            <div
-              className={`relative mt-6 inline-flex items-center gap-2 font-semibold bg-gradient-to-r ${brand.color} bg-clip-text text-transparent`}
-            >
-              Visit Website
+              {/* Bottom Line */}
+              <div
+                className={`h-[3px] w-10 rounded-full bg-gradient-to-r ${brand.color} transition-all duration-500 group-hover:w-20`}
+              />
 
-              <motion.div
-                animate={{
-                  x: [0, 5, 0],
-                }}
-                transition={{
-                  duration: 1.5,
-                  repeat: Infinity,
-                }}
+              {/* CTA */}
+              <div
+                className={`mt-4 inline-flex items-center gap-2 font-semibold bg-gradient-to-r ${brand.color} bg-clip-text text-transparent`}
               >
+                Visit Website
+
                 <ArrowRight
                   size={17}
-                  className="text-[var(--primary)]"
+                  className="text-[var(--primary)] transition-transform duration-300 group-hover:translate-x-1"
                 />
-              </motion.div>
+              </div>
+
             </div>
 
-          </motion.div>
+          </div>
         </motion.a>
       ))}
     </motion.div>
+
   </div>
 </section>
+
       {/* ══════════════════════════════════════════════════════
           CORE VALUES
       ══════════════════════════════════════════════════════ */}
@@ -542,35 +519,6 @@ export default function Landing() {
       </section>
 
       {/* ══════════════════════════════════════════════════════
-          MANUFACTURING PROCESS
-      ══════════════════════════════════════════════════════ */}
-      {/* <section className="py-32 bg-[var(--surface)]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mb-20">
-            <span className="text-sm font-semibold uppercase tracking-[4px] text-[var(--primary)]">How We Work</span>
-            <h2 className="mt-4 text-5xl font-black text-[var(--text)]">From Farm To Your Door</h2>
-            <p className="mt-6 text-lg text-[var(--text-secondary)] max-w-2xl mx-auto">A six-step process built around precision, hygiene, and zero-compromise quality.</p>
-          </motion.div>
-          <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true }}
-            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {manufacturingSteps.map((s) => (
-              <motion.div key={s.step} variants={childFade} whileHover={{ y: -6 }}
-                className="relative rounded-3xl border border-[var(--border)] bg-[var(--surface-secondary)] p-8 overflow-hidden transition-all duration-300 cursor-default group">
-                <span className="absolute -top-4 -right-4 text-8xl font-black text-[color-mix(in_srgb,var(--primary)_6%,transparent)] select-none">{s.step}</span>
-                <div className="relative">
-                  <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-[var(--primary)] to-[var(--secondary)] flex items-center justify-center">
-                    <span className="text-white font-black text-sm">{s.step}</span>
-                  </div>
-                  <h3 className="mt-6 text-xl font-bold text-[var(--text)]">{s.title}</h3>
-                  <p className="mt-3 leading-7 text-[var(--text-secondary)]">{s.desc}</p>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section> */}
-
-      {/* ══════════════════════════════════════════════════════
           QUALITY STANDARDS
       ══════════════════════════════════════════════════════ */}
       <section className="py-32 bg-[var(--background)]">
@@ -617,9 +565,6 @@ export default function Landing() {
           </div>
         </div>
       </section>
-
-
-
     </main>
   );
 }

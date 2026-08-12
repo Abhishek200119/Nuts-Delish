@@ -157,8 +157,6 @@ export default function Footer() {
         <p>
           &copy; {currentYear} Nuts Delish Private Limited. All rights reserved.
           &nbsp;·&nbsp;
-          <span>FSSAI Certified</span>
-          &nbsp;·&nbsp;
           <span>Made with ❤️ in India</span>
         </p>
 

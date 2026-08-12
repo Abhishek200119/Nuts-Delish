@@ -18,6 +18,7 @@ import imgGreenRaisins from "../assets/Dry Fruits/Green Raisins.png";
 import imgPista from "../assets/Dry Fruits/Pista.png";
 import imgFig from "../assets/Dry Fruits/Fig.png";
 import imgBlackCurrant from "../assets/Dry Fruits/Black Currant.png";
+import imgCranberry from "../assets/Dry Fruits/Cranberry.png";
 
 // ─── Image Imports: Seeds ─────────────────────────────────────────────────────
 import imgChia from "../assets/Seeds/Chia.png";
@@ -37,6 +38,7 @@ import imgTurmeric from "../assets/Whole Spices/Turmeric.png";
 import imgBayLeaves from "../assets/Whole Spices/Bay Leaves.png";
 import imgStarAnise from "../assets/Whole Spices/Star Anise.png";
 import imgFenugreek from "../assets/Whole Spices/Fenugreek.png";
+import imgMace from "../assets/Whole Spices/Mace.png";
 
 // ─── Animation Variants ───────────────────────────────────────────────────────
 const fadeUp: Variants = {
@@ -124,7 +126,7 @@ const products: Product[] = [
     name: "Premium California Almonds",
     category: "dry-fruits",
     description:
-      "Crisp, rich, and naturally nutritious — our California almonds are selected for maximum freshness.",
+      "Crisp, rich, and naturally nutritious our California almonds are selected for maximum freshness.",
     gradient: "from-amber-400 to-orange-400",
     iconBg: "bg-amber-100",
     image: imgAlmonds,
@@ -136,7 +138,7 @@ const products: Product[] = [
     name: "Whole Cashew W240",
     category: "dry-fruits",
     description:
-      "Large, buttery whole cashews with a clean snap and superior taste — perfect for snacking and cooking.",
+      "Large, buttery whole cashews with a clean snap and superior taste perfect for snacking and cooking.",
     gradient: "from-yellow-400 to-amber-400",
     iconBg: "bg-yellow-100",
     image: imgCashews,
@@ -203,10 +205,22 @@ const products: Product[] = [
     image: imgBlackCurrant,
     enquireUrl: "https://kesarco.com/products/dried-black-currant",
   },
+  {
+    id: 8,
+    name: "Dried Cranberry",
+     category: "dry-fruits",
+    description:
+  "Sweet and tangy dried cranberries with a naturally vibrant flavour perfect for snacking, baking, salads, and trail mixes.",
+    gradient: "from-amber-400 to-yellow-500",
+    iconBg: "bg-amber-100",
+    image: imgCranberry,
+    enquireUrl:
+     "https://kesarco.com/products/kesarco-premium-dried-cranberry",
+  },
 
   // ── Seeds ──
   {
-    id: 8,
+    id: 9,
     name: "Chia Seeds",
     category: "seeds",
     description:
@@ -218,11 +232,11 @@ const products: Product[] = [
   },
 
   {
-    id: 9,
+    id: 10,
     name: "Flax Seeds",
     category: "seeds",
     description:
-      "Golden and brown flax seeds rich in lignans and ALA omega-3 — great in smoothies, yoghurt, and baking.",
+      "Golden and brown flax seeds rich in lignans and ALA omega-3 great in smoothies, yoghurt, and baking.",
     gradient: "from-amber-500 to-yellow-500",
     iconBg: "bg-amber-100",
     image: imgFlax,
@@ -230,11 +244,11 @@ const products: Product[] = [
   },
 
   {
-    id: 10,
+    id: 11,
     name: "Pumpkin Seeds",
     category: "seeds",
     description:
-      "Crunchy roasted pumpkin seeds packed with zinc, magnesium, and plant protein — ideal as a snack.",
+      "Crunchy roasted pumpkin seeds packed with zinc, magnesium, and plant protein ideal as a snack.",
     gradient: "from-orange-400 to-amber-500",
     iconBg: "bg-orange-100",
     image: imgPumpkin,
@@ -242,11 +256,11 @@ const products: Product[] = [
   },
 
   {
-    id: 11,
+    id: 12,
     name: "Sunflower Seeds",
     category: "seeds",
     description:
-      "Light and crunchy sunflower seeds high in Vitamin E and selenium — great for salads and trail mixes.",
+      "Light and crunchy sunflower seeds high in Vitamin E and selenium great for salads and trail mixes.",
     gradient: "from-yellow-400 to-orange-400",
     iconBg: "bg-yellow-100",
     image: imgSunflower,
@@ -254,11 +268,11 @@ const products: Product[] = [
   },
 
   {
-    id: 12,
+    id: 13,
     name: "Basil Seeds (Sabja)",
     category: "seeds",
     description:
-      "Cooling basil seeds perfect for drinks and desserts — rich in fibre and naturally hydrating.",
+      "Cooling basil seeds perfect for drinks and desserts rich in fibre and naturally hydrating.",
     gradient: "from-emerald-400 to-teal-500",
     iconBg: "bg-emerald-100",
     image: imgBasil,
@@ -267,11 +281,11 @@ const products: Product[] = [
   },
 
   {
-    id: 13,
+    id: 14,
     name: "Watermelon Seeds",
     category: "seeds",
     description:
-      "Roasted watermelon seeds — a crunchy, protein-rich snack with magnesium and zinc.",
+      "Roasted watermelon seeds a crunchy, protein-rich snack with magnesium and zinc.",
     gradient: "from-red-400 to-rose-400",
     iconBg: "bg-red-100",
     image: imgWatermelon,
@@ -280,11 +294,11 @@ const products: Product[] = [
 
   // ── Whole Spices ──
   {
-    id: 14,
+    id: 15,
     name: "Green Cardamom (Elaichi)",
     category: "spices",
     description:
-      "Fragrant green cardamom pods bursting with aroma — sourced from the spice gardens of Kerala.",
+      "Fragrant green cardamom pods bursting with aroma sourced from the spice gardens of Kerala.",
     gradient: "from-green-500 to-emerald-500",
     iconBg: "bg-green-100",
     image: imgGreenCardamom,
@@ -293,11 +307,11 @@ const products: Product[] = [
   },
 
   {
-    id: 15,
+    id: 16,
     name: "Cinnamon Sticks",
     category: "spices",
     description:
-      "True cinnamon sticks with a warm, sweet-spicy flavour — perfect for teas, desserts, and curries.",
+      "True cinnamon sticks with a warm, sweet-spicy flavour perfect for teas, desserts, and curries.",
     gradient: "from-amber-600 to-orange-500",
     iconBg: "bg-amber-100",
     image: imgCinnamon,
@@ -306,7 +320,7 @@ const products: Product[] = [
   },
 
   {
-    id: 16,
+    id: 17,
     name: "Whole Black Pepper",
     category: "spices",
     description:
@@ -318,11 +332,11 @@ const products: Product[] = [
   },
 
   {
-    id: 17,
+    id: 18,
     name: "Cumin Seeds (Jeera)",
     category: "spices",
     description:
-      "Earthy, aromatic cumin seeds essential in Indian cooking — sourced from premium growing regions.",
+      "Earthy, aromatic cumin seeds essential in Indian cooking sourced from premium growing regions.",
     gradient: "from-yellow-600 to-amber-600",
     iconBg: "bg-yellow-100",
     image: imgCumin,
@@ -330,7 +344,7 @@ const products: Product[] = [
   },
 
   {
-    id: 18,
+    id: 19,
     name: "Whole Red Chilli",
     category: "spices",
     description:
@@ -343,11 +357,11 @@ const products: Product[] = [
   },
 
   {
-    id: 19,
+    id: 20,
     name: "Turmeric (Haldi)",
     category: "spices",
     description:
-      "Pure whole turmeric with high curcumin content — the golden spice of health and flavour.",
+      "Pure whole turmeric with high curcumin content the golden spice of health and flavour.",
     gradient: "from-yellow-400 to-amber-500",
     iconBg: "bg-yellow-100",
     image: imgTurmeric,
@@ -356,7 +370,7 @@ const products: Product[] = [
   },
 
   {
-    id: 20,
+    id: 21,
     name: "Bay Leaves (Tej Patta)",
     category: "spices",
     description:
@@ -369,11 +383,11 @@ const products: Product[] = [
   },
 
   {
-    id: 21,
+    id: 22,
     name: "Star Anise (Chakra Phool)",
     category: "spices",
     description:
-      "Beautiful star-shaped spice with a sweet, licorice-like flavour — essential in biryanis and chai.",
+      "Beautiful star-shaped spice with a sweet, licorice-like flavour essential in biryanis and chai.",
     gradient: "from-amber-500 to-brown-500",
     iconBg: "bg-amber-100",
     image: imgStarAnise,
@@ -381,7 +395,7 @@ const products: Product[] = [
   },
 
   {
-    id: 22,
+    id: 23,
     name: "Fenugreek Seeds (Methi)",
     category: "spices",
     description:
@@ -391,6 +405,18 @@ const products: Product[] = [
     image: imgFenugreek,
     enquireUrl:
       "https://kesarco.com/products/fenugreekmethi-seeds",
+  },
+  {
+    id: 24,
+    name: "Mace Flower (Javitri)",
+    category: "spices",
+    description:
+      "Aromatic and flavourful mace flowers with a warm, spicy taste ideal for enhancing desserts, teas, and traditional recipes.",
+    gradient: "from-amber-400 to-yellow-500",
+    iconBg: "bg-amber-100",
+    image: imgMace,
+    enquireUrl:
+      "https://kesarco.com/products/mace-flower-100-g",
   },
 ];
 
@@ -448,7 +474,7 @@ export default function Products() {
   return (
     <main className="overflow-hidden bg-[var(--background)]">
 
-    {/* ── FEATURED PRODUCTS GRID ── */}
+{/* ── FEATURED PRODUCTS GRID ── */}
 <section
   id="featured"
   className="pt-10 pb-12 bg-[var(--background)]"

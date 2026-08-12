@@ -29,7 +29,7 @@ export default function Navbar() {
           <img
             src={nutsLogo}
             alt="Nuts Delish"
-           className="h-24 w-80 object-contain"
+           className="h-15 w-80 object-contain"
           />
         </Link>
 

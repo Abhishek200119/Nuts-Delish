@@ -25,7 +25,7 @@ import HeroImage from "../assets/1.png";
 
 import amazon from "../assets/platforms/amazon.svg";
 import flipkart from "../assets/platforms/flipkart.svg";
-import blinkit from "../assets/platforms/blinkit.svg";
+// import blinkit from "../assets/platforms/blinkit.svg";
 import zepto from "../assets/platforms/zepto.svg";
 import bigbasket from "../assets/platforms/bigbasket.svg";
 import jiomart from "../assets/platforms/jiomart.svg";
@@ -42,10 +42,7 @@ const fadeRight: Variants = {
   hidden: { opacity: 0, x: 70 },
   visible: { opacity: 1, x: 0, transition: { duration: 0.7, ease: "easeOut" } },
 };
-// const scaleIn: Variants = {
-//   hidden: { opacity: 0, scale: 0.88 },
-//   visible: { opacity: 1, scale: 1, transition: { duration: 0.6, ease: "easeOut" } },
-// };
+
 const stagger: Variants = {
   visible: { transition: { staggerChildren: 0.11 } },
 };
@@ -110,7 +107,7 @@ const brands = [
 const trustedBy = [
   { name: "Amazon", logo: amazon },
   { name: "Flipkart", logo: flipkart },
-  { name: "Blinkit", logo: blinkit },
+  // { name: "Blinkit", logo: blinkit },
   { name: "Zepto", logo: zepto },
   { name: "BigBasket", logo: bigbasket },
   { name: "JioMart", logo: jiomart },

@@ -135,7 +135,7 @@ const products: Product[] = [
 
   {
     id: 2,
-    name: "Whole Cashew W240",
+    name: "Whole Cashew",
     category: "dry-fruits",
     description:
       "Large, buttery whole cashews with a clean snap and superior taste perfect for snacking and cooking.",

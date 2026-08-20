@@ -35,60 +35,9 @@ const childFade: Variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
 
-
-// const brands = [
-//   {
-//     name: "KesarCo",
-//     logo: KesarcoLogo,
-//     website: "https://kesarco.com",
-//     tagline: "Premium Grocery & Healthy Snacks",
-//     desc: "KesarCo offers a curated range of premium grocery staples — from finest dry fruits and nuts to aromatic spices and healthy snacks. Every product is sourced from trusted origins and packaged to preserve purity and freshness.",
-//     color: "from-amber-500 to-orange-500",
-//     bg: "bg-amber-50",
-//     border: "border-amber-200",
-//     items: [
-//       "Premium Dry Fruits",
-//       "Whole Spices",
-//       "Healthy Snacks",
-//       "Grocery Staples",
-//     ],
-//   },
-//   {
-//     name: "Tea Better",
-//     logo: TeaBetterLogo,
-//     website: "https://teabetter.in",
-//     tagline: "Wellness & Specialty Teas",
-//     desc: "Tea Better specializes in herbal, wellness, and specialty teas that support a healthy lifestyle. From classic blends to innovative infusions, every sip is crafted for taste, wellness, and mindful living.",
-//     color: "from-green-500 to-emerald-600",
-//     bg: "bg-green-50",
-//     border: "border-green-200",
-//     items: [
-//       "Herbal Teas",
-//       "Wellness Blends",
-//       "Green Teas",
-//       "Specialty Infusions",
-//     ],
-//   },
-//   {
-//     name: "Bruniq",
-//     logo: BruniqLogo,
-//     website: "https://bruniqclub.com",
-//     tagline: "Better-For-You Foods",
-//     desc: "Bruniq features a range of better-for-you food products designed for the modern, health-aware consumer. Clean ingredients, bold flavors, and functional nutrition come together in every Bruniq offering.",
-//     color: "from-rose-500 to-pink-600",
-//     bg: "bg-rose-50",
-//     border: "border-rose-200",
-//     items: [
-//       "Healthy Foods",
-//       "Nutritious Snacks",
-//       "Clean Ingredients",
-//       "Functional Products",
-//     ],
-//   },
-// ];
 const timeline = [
   {
-    year: "2020",
+    year: "2021",
     title: "Company Founded",
     desc: "Nuts Delish Private Limited was established with a vision to make premium food accessible to every household.",
   },
@@ -98,17 +47,17 @@ const timeline = [
     desc: "Our flagship brand KesarCo introduced premium grocery staples, dry fruits, spices, and healthy snacks to the market.",
   },
   {
-    year: "2022",
+    year: "2024",
     title: "Tea Better Introduced",
     desc: "Tea Better entered the wellness space with herbal, specialty, and premium teas for the health-conscious consumer.",
   },
   {
-    year: "2023",
+    year: "2025",
     title: "Bruniq Unveiled",
     desc: "Bruniq brought better-for-you food products to the portfolio, expanding our footprint in the healthy foods segment.",
   },
   {
-    year: "2024",
+    year: "2025",
     title: "Omnichannel Expansion",
     desc: "Launched across e-commerce, quick commerce, major marketplaces, and offline retail — reaching every corner of India.",
   },
@@ -238,7 +187,7 @@ export default function About() {
                 With a vision to make premium food products accessible to every household, the company continues to introduce products that cater to evolving consumer lifestyles while delivering exceptional taste, convenience, and value.
               </p>
               <div className="mt-10 grid grid-cols-2 gap-6">
-                {[["100+", "Products"], ["3", "Brands"], ["PAN India", "Reach"], ["2020", "Founded"]].map(([v, l]) => (
+                {[["100+", "Products"], ["3", "Brands"], ["PAN India", "Reach"], ["2021", "Founded"]].map(([v, l]) => (
                   <div key={l} className="rounded-2xl border border-[var(--border)] bg-[var(--surface-secondary)] p-6">
                     <p className="text-3xl font-black text-[var(--primary)]">{v}</p>
                     <p className="mt-1 text-sm text-[var(--text-secondary)]">{l}</p>

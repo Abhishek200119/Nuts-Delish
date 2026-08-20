@@ -25,7 +25,7 @@ import HeroImage from "../assets/1.png";
 
 import amazon from "../assets/platforms/amazon.svg";
 import flipkart from "../assets/platforms/flipkart.svg";
-// import blinkit from "../assets/platforms/blinkit.svg";
+import CRED from "../assets/platforms/CRED.png";
 import zepto from "../assets/platforms/zepto.svg";
 import bigbasket from "../assets/platforms/bigbasket.svg";
 import jiomart from "../assets/platforms/jiomart.svg";
@@ -111,6 +111,7 @@ const trustedBy = [
   { name: "Zepto", logo: zepto },
   { name: "BigBasket", logo: bigbasket },
   { name: "JioMart", logo: jiomart },
+  { name: "CRED", logo: CRED },
 ];
 const qualityStandards = [
   "FSSAI Certified", "Lab-Tested Batches", "Food-Grade Packaging",
@@ -158,7 +159,7 @@ export default function Landing() {
               </a>
             </div>
             <div className="mt-14 grid grid-cols-3 gap-8">
-              {[["100+", "Premium Products"], ["2020", "Established"], ["PAN", "India Supply"]].map(([v, l]) => (
+              {[["100+", "Premium Products"], ["2021", "Established"], ["PAN", "India Supply"]].map(([v, l]) => (
                 <div key={l}>
                   <h2 className="text-4xl font-black text-zinc-900">{v}</h2>
                   <p className="text-zinc-500 mt-2 text-sm">{l}</p>

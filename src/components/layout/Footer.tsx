@@ -110,6 +110,14 @@ export default function Footer() {
             Whole Spices
           </Link>
 
+          <Link to="/products" className={linkClasses}>
+            Herbal Teas
+          </Link>
+
+          <Link to="/products" className={linkClasses}>
+            Healthy Snacks
+          </Link>
+
         </div>
 
         {/* Company */}

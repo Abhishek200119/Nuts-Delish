@@ -28,6 +28,26 @@ import imgSunflower from "../assets/Seeds/Sunflower.png";
 import imgBasil from "../assets/Seeds/Basil.png";
 import imgWatermelon from "../assets/Seeds/Watermelon.png";
 
+// ─── Image Imports: Tea ───────────────────────────────────────────────────────
+import imgButterflyPea from "../assets/Tea/Butterfly Pea.png";
+import imgHibiscus from "../assets/Tea/Hibiscus.png";
+import imgKashmiriKahwa from "../assets/Tea/Kashmiri Kahwa.png";
+import imgLavender from "../assets/Tea/Lavender.png";
+import imgLemongrass from "../assets/Tea/Lemongrass.png";
+import imgPeppermint from "../assets/Tea/Peppermint.png";
+import imgRoseTea from "../assets/Tea/Rose.png";
+import imgRosemary from "../assets/Tea/Rosemary.png";
+
+// ─── Image Imports: Snacks ────────────────────────────────────────────────────
+import imgApricots from "../assets/Snacks/Apricots.png";
+import imgBrazilNuts from "../assets/Snacks/Brazil Nuts.png";
+import imgChips from "../assets/Snacks/Chips.png";
+import imgDailyDose from "../assets/Snacks/Daily Dose.png";
+import imgJowarChivda from "../assets/Snacks/Jowar Chivda.png";
+import imgMultigrainsMix from "../assets/Snacks/Multigrans Mix.png";
+import imgPeanuts from "../assets/Snacks/Peanuts.png";
+import imgRagiCookies from "../assets/Snacks/Ragi Cookies.png";
+
 // ─── Image Imports: Whole Spices ──────────────────────────────────────────────
 import imgGreenCardamom from "../assets/Whole Spices/Green Cardamom.png";
 import imgCinnamon from "../assets/Whole Spices/Cinnamon.png";
@@ -68,6 +88,8 @@ interface Product {
   name: string;
   category: string;
   description: string;
+  tags?: string[];
+  badge?: string;
   gradient: string;
   iconBg: string;
   image: string;
@@ -116,6 +138,26 @@ const categories: Category[] = [
     border: "border-rose-200",
     description: "Aromatic whole spices sourced from premium growing regions for authentic, bold flavour in every dish.",
     highlights: ["100% whole & natural", "Premium origins", "No blends or fillers", "Intense aroma & flavour"],
+  },
+  {
+    id: "tea",
+    label: "Herbal Teas",
+    icon: Leaf,
+    color: "from-teal-500 to-cyan-600",
+    bg: "bg-teal-50",
+    border: "border-teal-200",
+    description: "Wellness and specialty teas crafted from hand-selected herbs, flowers, and botanicals.",
+    highlights: ["100% natural herbs", "Caffeine-free options", "Wellness focused", "Rich in antioxidants"],
+  },
+  {
+    id: "snacks",
+    label: "Healthy Snacks",
+    icon: Star,
+    color: "from-orange-500 to-amber-500",
+    bg: "bg-orange-50",
+    border: "border-orange-200",
+    description: "Better-for-you snacks made with clean ingredients — guilt-free munching for every moment.",
+    highlights: ["Clean ingredients", "No artificial additives", "High protein options", "On-the-go ready"],
   },
 ];
 
@@ -417,6 +459,316 @@ const products: Product[] = [
     image: imgMace,
     enquireUrl:
       "https://kesarco.com/products/mace-flower-100-g",
+  },
+  // ── Tea ──
+  {
+    id: 25,
+    name: "Green Cardamom (Elaichi)",
+    category: "spices",
+    description:
+      "Fragrant green cardamom pods bursting with aroma sourced from the spice gardens of Kerala.",
+    gradient: "from-green-500 to-emerald-500",
+    iconBg: "bg-green-100",
+    image: imgGreenCardamom,
+    enquireUrl:
+      "https://kesarco.com/products/green-cardamom-40gm",
+  },
+
+  {
+    id: 26,
+    name: "Cinnamon Sticks",
+    category: "spices",
+    description:
+      "True cinnamon sticks with a warm, sweet-spicy flavour perfect for teas, desserts, and curries.",
+    gradient: "from-amber-600 to-orange-500",
+    iconBg: "bg-amber-100",
+    image: imgCinnamon,
+    enquireUrl:
+      "https://kesarco.com/products/cinnamom-sticks-50gm-1",
+  },
+
+  {
+    id: 27,
+    name: "Whole Black Pepper",
+    category: "spices",
+    description:
+      "Bold, pungent whole black peppercorns freshly packed to preserve essential oils and maximum flavour.",
+    gradient: "from-gray-600 to-slate-700",
+    iconBg: "bg-gray-100",
+    image: imgBlackPepper,
+    enquireUrl: "https://kesarco.com/products/black-pepper",
+  },
+
+  {
+    id: 28,
+    name: "Cumin Seeds (Jeera)",
+    category: "spices",
+    description:
+      "Earthy, aromatic cumin seeds essential in Indian cooking sourced from premium growing regions.",
+    gradient: "from-yellow-600 to-amber-600",
+    iconBg: "bg-yellow-100",
+    image: imgCumin,
+    enquireUrl: "https://kesarco.com/products/jeeracumin-seeds",
+  },
+
+  {
+    id: 29,
+    name: "Whole Red Chilli",
+    category: "spices",
+    description:
+      "Fiery whole red chillies that add bold heat and vibrant colour to every dish.",
+    gradient: "from-red-500 to-rose-600",
+    iconBg: "bg-red-100",
+    image: imgRedChilli,
+    enquireUrl:
+      "https://kesarco.com/products/red-chilli-whole-lal-mirch?_pos=1&_psq=red+chilli&_psid=9af4bee07&_ss=e",
+  },
+
+  {
+    id: 30,
+    name: "Turmeric (Haldi)",
+    category: "spices",
+    description:
+      "Pure whole turmeric with high curcumin content the golden spice of health and flavour.",
+    gradient: "from-yellow-400 to-amber-500",
+    iconBg: "bg-yellow-100",
+    image: imgTurmeric,
+    enquireUrl:
+      "https://kesarco.com/products/turmeric-powder-rich-in-curcumin",
+  },
+
+  {
+    id: 31,
+    name: "Bay Leaves (Tej Patta)",
+    category: "spices",
+    description:
+      "Fragrant whole bay leaves that lend deep aroma and flavour to slow-cooked dishes and biryanis.",
+    gradient: "from-green-600 to-teal-600",
+    iconBg: "bg-green-100",
+    image: imgBayLeaves,
+    enquireUrl:
+      "https://kesarco.com/products/dried-bay-leaves-tej-patta-100gm",
+  },
+
+  {
+    id: 32,
+    name: "Star Anise (Chakra Phool)",
+    category: "spices",
+    description:
+      "Beautiful star-shaped spice with a sweet, licorice-like flavour essential in biryanis and chai.",
+    gradient: "from-amber-500 to-brown-500",
+    iconBg: "bg-amber-100",
+    image: imgStarAnise,
+    enquireUrl: "https://kesarco.com/products/star-anise-20gm",
+  },
+
+  {
+    id: 33,
+    name: "Fenugreek Seeds (Methi)",
+    category: "spices",
+    description:
+      "Slightly bitter, highly nutritious fenugreek seeds used in curries, pickling, and wellness routines.",
+    gradient: "from-amber-400 to-yellow-500",
+    iconBg: "bg-amber-100",
+    image: imgFenugreek,
+    enquireUrl:
+      "https://kesarco.com/products/fenugreekmethi-seeds",
+  },
+  {
+    id: 34,
+    name: "Mace Flower (Javitri)",
+    category: "spices",
+    description:
+      "Aromatic and flavourful mace flowers with a warm, spicy taste ideal for enhancing desserts, teas, and traditional recipes.",
+    gradient: "from-amber-400 to-yellow-500",
+    iconBg: "bg-amber-100",
+    image: imgMace,
+    enquireUrl:
+      "https://kesarco.com/products/mace-flower-100-g",
+  },
+
+  // ── Tea ──
+  {
+    id: 35,
+    name: "Butterfly Pea Tea",
+    category: "tea",
+    description: "Vibrant blue herbal tea from butterfly pea flowers rich in antioxidants and naturally caffeine-free.",
+    tags: ["Caffeine-Free", "Antioxidant"],
+    badge: "Trending",
+    gradient: "from-blue-500 to-indigo-500",
+    iconBg: "bg-blue-100",
+    image: imgButterflyPea,
+    enquireUrl: "https://teabetter.in/products/butterfly-pea-flower-tea",
+  },
+  {
+    id: 36,
+    name: "Hibiscus Tea",
+    category: "tea",
+    description: "Tangy, ruby-red hibiscus tea packed with Vitamin C and natural antioxidants hot or cold.",
+    tags: ["Vitamin C", "Caffeine-Free"],
+    gradient: "from-rose-500 to-red-500",
+    iconBg: "bg-rose-100",
+    image: imgHibiscus,
+    enquireUrl: "https://teabetter.in/products/hibiscus-flower-tea",
+  },
+  {
+    id: 37,
+    name: "Kashmiri Kahwa",
+    category: "tea",
+    description: "Aromatic Kashmiri green tea blended with saffron, cinnamon, and cardamom a warming wellness cup.",
+    tags: ["Premium", "Wellness"],
+    badge: "Premium",
+    gradient: "from-amber-500 to-orange-500",
+    iconBg: "bg-amber-100",
+    image: imgKashmiriKahwa,
+    enquireUrl: "https://teabetter.in/products/kashmiri-kahwa-tea",
+  },
+  {
+    id: 38,
+    name: "Lavender Tea",
+    category: "tea",
+    description: "Calming lavender herbal tea with a floral aroma perfect for relaxing evenings and restful sleep.",
+    tags: ["Calming", "Caffeine-Free"],
+    gradient: "from-purple-400 to-violet-500",
+    iconBg: "bg-purple-100",
+    image: imgLavender,
+    enquireUrl: "https://teabetter.in/products/lavender-flower-tea",
+  },
+  {
+    id: 39,
+    name: "Lemongrass Tea",
+    category: "tea",
+    description: "Refreshing lemongrass herbal tea with a citrusy, earthy flavour great for digestion and immunity.",
+    tags: ["Digestive", "Refreshing"],
+    gradient: "from-lime-400 to-green-500",
+    iconBg: "bg-lime-100",
+    image: imgLemongrass,
+    enquireUrl: "https://teabetter.in/products/lemongrass-tea-leaves-2",
+  },
+  {
+    id: 40,
+    name: "Peppermint Tea",
+    category: "tea",
+    description: "Crisp, cooling peppermint tea naturally caffeine-free and great for digestion and mental clarity.",
+    tags: ["Cooling", "Digestive"],
+    gradient: "from-teal-400 to-cyan-500",
+    iconBg: "bg-teal-100",
+    image: imgPeppermint,
+    enquireUrl: "https://teabetter.in/products/peppermint-tea-leaves",
+  },
+  {
+    id: 41,
+    name: "Rose Tea",
+    category: "tea",
+    description: "Delicate rose petal tea with a subtle floral sweetness rich in Vitamin C and natural antioxidants.",
+    tags: ["Floral", "Vitamin C"],
+    gradient: "from-pink-400 to-rose-500",
+    iconBg: "bg-pink-100",
+    image: imgRoseTea,
+    enquireUrl: "https://teabetter.in/products/rose-flower-tea",
+  },
+  {
+    id: 42,
+    name: "Rosemary Tea",
+    category: "tea",
+    description: "Earthy, aromatic rosemary herbal tea known for its memory-boosting and anti-inflammatory properties.",
+    tags: ["Wellness", "Aromatic"],
+    gradient: "from-green-600 to-emerald-600",
+    iconBg: "bg-green-100",
+    image: imgRosemary,
+    enquireUrl: "https://teabetter.in/products/rosemary-tea-leaves-1?_pos=1&_psq=rosemary&_psid=b1747fcbc&_ss=e",
+  },
+
+  // ── Snacks ──
+  {
+    id: 43,
+    name: "Dried Apricots",
+    category: "snacks",
+    description: "Soft, naturally sweet dried apricots loaded with beta-carotene, iron, and fibrea wholesome snack.",
+    tags: ["Iron Rich", "Natural"],
+    gradient: "from-orange-400 to-amber-400",
+    iconBg: "bg-orange-100",
+    image: imgApricots,
+    enquireUrl: "https://bruniqclub.com/products/bruniq-premium-apricots-150g-naturally-sweet-nutritious-dry-fruit",
+  },
+  {
+    id: 44,
+    name: "Brazil Nuts",
+    category: "snacks",
+    description: "Large, creamy Brazil nuts the world's richest natural source of selenium, great for thyroid health.",
+    tags: ["High Selenium", "Premium"],
+    badge: "Premium",
+    gradient: "from-amber-600 to-yellow-600",
+    iconBg: "bg-amber-100",
+    image: imgBrazilNuts,
+    enquireUrl: "https://bruniqclub.com/products/bruniq-premium-brazil-nuts-150g-raw-natural-high-nutrition-crunchy-fresh",
+  },
+  {
+    id: 45,
+    name: "Healthy Chips",
+    category: "snacks",
+    description: "Light, crunchy baked chips made with wholesome ingredients all the crunch, none of the guilt.",
+    tags: ["Baked", "Low Fat"],
+    gradient: "from-yellow-400 to-orange-400",
+    iconBg: "bg-yellow-100",
+    image: imgChips,
+    enquireUrl: "https://bruniqclub.com/products/bruniq-healthy-snacking-combo-60g-x-3-ragi-jowar-protein-roasted-chips-180g",
+  },
+  {
+    id: 46,
+    name: "Daily Dose Mix",
+    category: "snacks",
+    description: "A power-packed daily nutrition mix of nuts, seeds, and dried fruits your everyday wellness boost.",
+    tags: ["Daily Nutrition", "Bestseller"],
+    badge: "Bestseller",
+    gradient: "from-rose-400 to-pink-500",
+    iconBg: "bg-rose-100",
+    image: imgDailyDose,
+    enquireUrl: "https://bruniqclub.com/products/daily-dose-your-everyday-energy-boost",
+  },
+  {
+    id: 47,
+    name: "Jowar Chivda",
+    category: "snacks",
+    description: "Light and crispy jowar-based chivda a high-fibre, gluten-free snack with authentic Indian flavours.",
+    tags: ["Gluten-Free", "High Fibre"],
+    gradient: "from-lime-500 to-green-500",
+    iconBg: "bg-lime-100",
+    image: imgJowarChivda,
+    enquireUrl: "https://bruniqclub.com/products/jowar-chivda-pack-of-2",
+  },
+  {
+    id: 48,
+    name: "Multigrain Mix",
+    category: "snacks",
+    description: "A crunchy multigrain snack mix packed with seeds, grains, and dried fruits for wholesome snacking.",
+    tags: ["Multigrain", "Energy Boost"],
+    gradient: "from-amber-500 to-orange-500",
+    iconBg: "bg-amber-100",
+    image: imgMultigrainsMix,
+    enquireUrl: "https://bruniqclub.com/products/bruniq-multigrain-mix-75g-healthy-crunchy-protein-snack",
+  },
+  {
+    id: 49,
+    name: "Roasted Peanuts",
+    category: "snacks",
+    description: "Crunchy roasted peanuts lightly seasoned with Himalayan salta classic high-protein snack.",
+    tags: ["High Protein", "Roasted"],
+    gradient: "from-yellow-500 to-amber-500",
+    iconBg: "bg-yellow-100",
+    image: imgPeanuts,
+    enquireUrl: "https://bruniqclub.com/products/jaggery-peanut-chikki",
+  },
+  {
+    id: 50,
+    name: "Ragi Cookies",
+    category: "snacks",
+    description: "Wholesome ragi-based cookies baked with natural ingredients a guilt-free treat for every age.",
+    tags: ["Baked", "Calcium Rich"],
+    gradient: "from-amber-700 to-brown-600",
+    iconBg: "bg-amber-100",
+    image: imgRagiCookies,
+    enquireUrl: "https://bruniqclub.com/products/ragi-chocolate-cookies-70g",
   },
 ];
 

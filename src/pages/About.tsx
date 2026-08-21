@@ -47,6 +47,11 @@ const timeline = [
     desc: "Our flagship brand KesarCo introduced premium grocery staples, dry fruits, spices, and healthy snacks to the market.",
   },
   {
+    year: "2021",
+    title: "National Growth",
+    desc: "Scaling manufacturing, deepening distribution, and innovating new products to serve evolving consumer lifestyles.",
+  },
+  {
     year: "2024",
     title: "Tea Better Introduced",
     desc: "Tea Better entered the wellness space with herbal, specialty, and premium teas for the health-conscious consumer.",
@@ -61,11 +66,7 @@ const timeline = [
     title: "Omnichannel Expansion",
     desc: "Launched across e-commerce, quick commerce, major marketplaces, and offline retail — reaching every corner of India.",
   },
-  {
-    year: "2025+",
-    title: "National Growth",
-    desc: "Scaling manufacturing, deepening distribution, and innovating new products to serve evolving consumer lifestyles.",
-  },
+
 ];
 const values = [
   { icon: ShieldCheck, title: "Quality First", desc: "Every product undergoes rigorous quality checks from sourcing to shelf, ensuring only the best reaches your home." },
@@ -93,78 +94,78 @@ export default function About() {
     <main className="overflow-hidden bg-[var(--background)]">
 
       {/* ── HERO ── */}
-<section className="relative overflow-hidden bg-[var(--background)]">
+      <section className="relative overflow-hidden bg-[var(--background)]">
 
-  {/* Background Glow */}
-  <div className="absolute inset-0 pointer-events-none">
-    <div className="absolute -top-40 -left-40 h-[500px] w-[500px] rounded-full bg-[color-mix(in_srgb,var(--primary)_12%,transparent)] blur-3xl" />
+        {/* Background Glow */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute -top-40 -left-40 h-[500px] w-[500px] rounded-full bg-[color-mix(in_srgb,var(--primary)_12%,transparent)] blur-3xl" />
 
-    <div className="absolute -bottom-20 -right-20 h-[400px] w-[400px] rounded-full bg-[color-mix(in_srgb,var(--accent)_25%,transparent)] blur-3xl" />
+          <div className="absolute -bottom-20 -right-20 h-[400px] w-[400px] rounded-full bg-[color-mix(in_srgb,var(--accent)_25%,transparent)] blur-3xl" />
 
-    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[350px] w-[350px] rounded-full bg-[color-mix(in_srgb,var(--secondary)_8%,transparent)] blur-3xl" />
-  </div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[350px] w-[350px] rounded-full bg-[color-mix(in_srgb,var(--secondary)_8%,transparent)] blur-3xl" />
+        </div>
 
-  <div className="relative z-10 max-w-5xl mx-auto px-6 py-14 md:py-16 text-center">
+        <div className="relative z-10 max-w-5xl mx-auto px-6 py-14 md:py-16 text-center">
 
-    <motion.div
-      variants={stagger}
-      initial="hidden"
-      animate="visible"
-    >
+          <motion.div
+            variants={stagger}
+            initial="hidden"
+            animate="visible"
+          >
 
-      {/* Label */}
-      <motion.span
-        variants={childFade}
-        className="inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--surface)] px-5 py-2 text-sm font-semibold text-[var(--primary)] shadow-[var(--shadow-sm)]"
-      >
-        <Building2 size={16} />
-        Our Story
-      </motion.span>
+            {/* Label */}
+            <motion.span
+              variants={childFade}
+              className="inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--surface)] px-5 py-2 text-sm font-semibold text-[var(--primary)] shadow-[var(--shadow-sm)]"
+            >
+              <Building2 size={16} />
+              Our Story
+            </motion.span>
 
-      {/* Heading */}
-      <motion.h1
-        variants={childFade}
-        className="mt-6 text-5xl md:text-7xl lg:text-8xl font-black leading-[1.05] text-[var(--text)]"
-      >
-        Building Brands{" "}
-        <span className="text-[var(--primary)]">People</span>{" "}
-        <span className="text-[var(--secondary)]">Love</span>
-      </motion.h1>
+            {/* Heading */}
+            <motion.h1
+              variants={childFade}
+              className="mt-6 text-5xl md:text-7xl lg:text-8xl font-black leading-[1.05] text-[var(--text)]"
+            >
+              Building Brands{" "}
+              <span className="text-[var(--primary)]">People</span>{" "}
+              <span className="text-[var(--secondary)]">Love</span>
+            </motion.h1>
 
-      {/* Description */}
-      <motion.p
-        variants={childFade}
-        className="mt-5 max-w-3xl mx-auto text-base md:text-lg leading-7 md:leading-8 text-[var(--text-secondary)]"
-      >
-        Nuts Delish is a fast-growing FMCG company focused on building
-        innovative, consumer-centric food and beverage brands that bring
-        premium quality to every home across India.
-      </motion.p>
+            {/* Description */}
+            <motion.p
+              variants={childFade}
+              className="mt-5 max-w-3xl mx-auto text-base md:text-lg leading-7 md:leading-8 text-[var(--text-secondary)]"
+            >
+              Nuts Delish is a fast-growing FMCG company focused on building
+              innovative, consumer-centric food and beverage brands that bring
+              premium quality to every home across India.
+            </motion.p>
 
-      {/* Buttons */}
-      <motion.div
-        variants={childFade}
-        className="mt-7 flex justify-center gap-4 flex-wrap"
-      >
-        <a
-          href="/products"
-          className="inline-flex items-center gap-2 rounded-full bg-[var(--primary)] px-7 py-3.5 text-white font-semibold hover:bg-[var(--primary-hover)] transition-all duration-300 hover:-translate-y-1 shadow-[var(--shadow-md)]"
-        >
-          Explore Products
-          <ArrowRight size={18} />
-        </a>
+            {/* Buttons */}
+            <motion.div
+              variants={childFade}
+              className="mt-7 flex justify-center gap-4 flex-wrap"
+            >
+              <a
+                href="/products"
+                className="inline-flex items-center gap-2 rounded-full bg-[var(--primary)] px-7 py-3.5 text-white font-semibold hover:bg-[var(--primary-hover)] transition-all duration-300 hover:-translate-y-1 shadow-[var(--shadow-md)]"
+              >
+                Explore Products
+                <ArrowRight size={18} />
+              </a>
 
-        <a
-          href="/contact"
-          className="inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--surface)] px-7 py-3.5 font-semibold text-[var(--text)] hover:border-[var(--primary)] hover:text-[var(--primary)] transition-all duration-300"
-        >
-          Contact Us
-        </a>
-      </motion.div>
+              <a
+                href="/contact"
+                className="inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--surface)] px-7 py-3.5 font-semibold text-[var(--text)] hover:border-[var(--primary)] hover:text-[var(--primary)] transition-all duration-300"
+              >
+                Contact Us
+              </a>
+            </motion.div>
 
-    </motion.div>
-  </div>
-</section>
+          </motion.div>
+        </div>
+      </section>
 
       {/* ── WHO WE ARE ── */}
       <section className="py-32 bg-[var(--surface)]">
@@ -230,7 +231,7 @@ export default function About() {
 
             return (
               <motion.div
-                key={item.year}
+                key={`${item.year}-${item.title}`}
                 initial={{
                   opacity: 0,
                   x: left ? -80 : 80,

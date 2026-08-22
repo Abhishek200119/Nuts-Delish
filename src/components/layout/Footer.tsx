@@ -148,13 +148,22 @@ export default function Footer() {
             Connect
           </h4>
 
-          <a
-            href="#"
-            className={linkClasses}
-          >
-            LinkedIn
-          </a>
+  <a
+  href="https://www.linkedin.com/showcase/nuts-delish/"
+  className={linkClasses}
+  onClick={(e) => {
+    e.preventDefault();
+    e.stopPropagation();
 
+    window.open(
+      "https://www.linkedin.com/showcase/nuts-delish/",
+      "_blank",
+      "noopener,noreferrer"
+    );
+  }}
+>
+  LinkedIn
+</a>
         </div>
 
       </div>
